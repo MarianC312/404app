@@ -101,7 +101,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func _on_timer_timeout() -> void:
 	if tile != null:
 		match tile._get_type():
-			"red":
+			"red": # prueba de repo git funcando
 				_take_damage()
 			"green":
 				_heal_up()
