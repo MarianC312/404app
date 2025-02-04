@@ -1,0 +1,2023 @@
+[gd_scene load_steps=11 format=3 uid="uid://c535do2e3f2qd"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/TestLevel/test_level.gd" id="1_6qk84"]
+[ext_resource type="PackedScene" uid="uid://dy26xc485fhld" path="res://addons/srcoder_fps_controller/player.tscn" id="1_nnkuk"]
+[ext_resource type="PackedScene" uid="uid://xvirvni0l0oy" path="res://addons/srcoder_fps_controller/mouse_lock.tscn" id="2_i82do"]
+[ext_resource type="Script" path="res://Scripts/tile_controller.gd" id="3_qbu74"]
+[ext_resource type="Script" path="res://Scripts/tile.gd" id="4_6c02p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ytnku"]
+size = Vector3(2, 0.05, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aiaw3"]
+size = Vector3(2, 0.05, 2)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eods5"]
+
+[sub_resource type="Sky" id="Sky_pb884"]
+sky_material = SubResource("ProceduralSkyMaterial_eods5")
+
+[sub_resource type="Environment" id="Environment_i1r7f"]
+background_mode = 2
+sky = SubResource("Sky_pb884")
+ambient_light_source = 3
+ambient_light_color = Color(0.80057, 0.621181, 0.545011, 1)
+reflected_light_source = 2
+
+[node name="TestLevel" type="Node3D"]
+script = ExtResource("1_6qk84")
+
+[node name="Player" parent="." instance=ExtResource("1_nnkuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75053, 0)
+
+[node name="MouseLock" parent="Player" instance=ExtResource("2_i82do")]
+
+[node name="TestRoom" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="TestRoom"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="TestRoom/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.594727, 2.02582, -1.8772)
+size = Vector3(30, 5, 30)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="TestRoom/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.626, -2)
+operation = 2
+size = Vector3(28, 5, 28)
+
+[node name="TileContainer" type="Node3D" parent="TestRoom"]
+script = ExtResource("3_qbu74")
+
+[node name="Tile01" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6099, 0.151, 10.9959)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile01"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile01"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile02" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6099, 0.151, 10.9959)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile02"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile02"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile03" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60988, 0.151, 10.9959)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile03"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile03"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile04" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60988, 0.151, 10.9959)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile04"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile04"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile05" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60988, 0.151, 10.9959)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile05"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile05"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile06" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60988, 0.151, 10.9959)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile06"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile06"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile07" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60988, 0.151, 10.9959)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile07"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile07"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile08" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390121, 0.151, 10.9959)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile08"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile08"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile09" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39012, 0.151, 10.9959)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile09"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile09"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile10" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39012, 0.151, 10.9959)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile10"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile10"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile11" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39012, 0.151, 10.9959)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile11"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile11"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile12" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39012, 0.151, 10.9959)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile12"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile12"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile13" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3901, 0.151, 10.9959)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile13"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile13"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile14" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3901, 0.151, 10.9959)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile14"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile14"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile15" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6099, 0.151, 8.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile15"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile15"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile16" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6099, 0.151, 8.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile16"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile16"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile17" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60988, 0.151, 8.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile17"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile17"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile18" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60988, 0.151, 8.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile18"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile18"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile19" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60988, 0.151, 8.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile19"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile19"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile20" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60988, 0.151, 8.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile20"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile20"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile21" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60988, 0.151, 8.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile21"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile21"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile22" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390121, 0.151, 8.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile22"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile22"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile23" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39012, 0.151, 8.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile23"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile23"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile24" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39012, 0.151, 8.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile24"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile24"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile25" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39012, 0.151, 8.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile25"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile25"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile26" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39012, 0.151, 8.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile26"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile26"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile27" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3901, 0.151, 8.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile27"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile27"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile28" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3901, 0.151, 8.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile28"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile28"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile29" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6099, 0.151, 6.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile29"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile29"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile30" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6099, 0.151, 6.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile30"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile30"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile31" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60988, 0.151, 6.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile31"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile31"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile32" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60988, 0.151, 6.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile32"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile32"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile33" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60988, 0.151, 6.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile33"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile33"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile34" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60988, 0.151, 6.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile34"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile34"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile35" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60988, 0.151, 6.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile35"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile35"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile36" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390121, 0.151, 6.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile36"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile36"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile37" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39012, 0.151, 6.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile37"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile37"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile38" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39012, 0.151, 6.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile38"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile38"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile39" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39012, 0.151, 6.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile39"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile39"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile40" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39012, 0.151, 6.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile40"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile40"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile41" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3901, 0.151, 6.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile41"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile41"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile42" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3901, 0.151, 6.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile42"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile42"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile43" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6099, 0.151, 4.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile43"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile43"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile44" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6099, 0.151, 4.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile44"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile44"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile45" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60988, 0.151, 4.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile45"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile45"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile46" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60988, 0.151, 4.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile46"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile46"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile47" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60988, 0.151, 4.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile47"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile47"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile48" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60988, 0.151, 4.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile48"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile48"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile49" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60988, 0.151, 4.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile49"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile49"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile50" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390121, 0.151, 4.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile50"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile50"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile51" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39012, 0.151, 4.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile51"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile51"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile52" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39012, 0.151, 4.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile52"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile52"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile53" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39012, 0.151, 4.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile53"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile53"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile54" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39012, 0.151, 4.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile54"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile54"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile55" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3901, 0.151, 4.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile55"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile55"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile56" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3901, 0.151, 4.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile56"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile56"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile57" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6099, 0.151, 2.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile57"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile57"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile58" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6099, 0.151, 2.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile58"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile58"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile59" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60988, 0.151, 2.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile59"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile59"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile60" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60988, 0.151, 2.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile60"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile60"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile61" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60988, 0.151, 2.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile61"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile61"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile62" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60988, 0.151, 2.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile62"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile62"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile63" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60988, 0.151, 2.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile63"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile63"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile64" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390121, 0.151, 2.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile64"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile64"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile65" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39012, 0.151, 2.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile65"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile65"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile66" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39012, 0.151, 2.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile66"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile66"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile67" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39012, 0.151, 2.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile67"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile67"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile68" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39012, 0.151, 2.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile68"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile68"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile69" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3901, 0.151, 2.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile69"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile69"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile70" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3901, 0.151, 2.99593)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile70"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile70"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile71" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6099, 0.151, 0.995928)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile71"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile71"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile72" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6099, 0.151, 0.995928)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile72"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile72"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile73" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60988, 0.151, 0.995928)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile73"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile73"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile74" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60988, 0.151, 0.995928)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile74"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile74"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile75" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60988, 0.151, 0.995928)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile75"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile75"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile76" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60988, 0.151, 0.995928)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile76"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile76"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile77" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60988, 0.151, 0.995928)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile77"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile77"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile78" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390121, 0.151, 0.995928)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile78"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile78"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile79" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39012, 0.151, 0.995928)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile79"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile79"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile80" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39012, 0.151, 0.995928)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile80"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile80"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile81" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39012, 0.151, 0.995928)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile81"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile81"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile82" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39012, 0.151, 0.995928)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile82"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile82"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile83" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3901, 0.151, 0.995928)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile83"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile83"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile84" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3901, 0.151, 0.995928)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile84"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile84"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile85" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6099, 0.151, -1.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile85"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile85"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile86" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6099, 0.151, -1.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile86"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile86"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile87" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60988, 0.151, -1.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile87"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile87"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile88" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60988, 0.151, -1.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile88"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile88"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile89" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60988, 0.151, -1.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile89"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile89"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile90" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60988, 0.151, -1.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile90"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile90"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile91" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60988, 0.151, -1.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile91"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile91"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile92" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390121, 0.151, -1.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile92"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile92"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile93" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39012, 0.151, -1.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile93"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile93"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile94" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39012, 0.151, -1.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile94"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile94"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile95" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39012, 0.151, -1.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile95"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile95"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile96" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39012, 0.151, -1.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile96"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile96"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile97" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3901, 0.151, -1.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile97"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile97"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile98" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3901, 0.151, -1.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile98"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile98"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile99" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6099, 0.151, -3.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile99"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile99"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile100" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6099, 0.151, -3.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile100"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile100"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile101" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60988, 0.151, -3.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile101"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile101"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile102" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60988, 0.151, -3.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile102"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile102"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile103" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60988, 0.151, -3.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile103"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile103"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile104" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60988, 0.151, -3.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile104"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile104"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile105" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60988, 0.151, -3.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile105"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile105"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile106" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390121, 0.151, -3.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile106"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile106"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile107" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39012, 0.151, -3.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile107"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile107"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile108" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39012, 0.151, -3.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile108"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile108"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile109" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39012, 0.151, -3.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile109"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile109"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile110" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39012, 0.151, -3.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile110"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile110"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile111" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3901, 0.151, -3.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile111"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile111"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile112" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3901, 0.151, -3.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile112"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile112"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile113" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6099, 0.151, -5.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile113"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile113"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile114" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6099, 0.151, -5.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile114"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile114"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile115" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60988, 0.151, -5.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile115"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile115"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile116" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60988, 0.151, -5.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile116"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile116"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile117" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60988, 0.151, -5.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile117"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile117"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile118" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60988, 0.151, -5.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile118"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile118"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile119" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60988, 0.151, -5.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile119"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile119"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile120" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390121, 0.151, -5.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile120"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile120"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile121" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39012, 0.151, -5.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile121"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile121"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile122" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39012, 0.151, -5.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile122"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile122"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile123" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39012, 0.151, -5.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile123"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile123"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile124" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39012, 0.151, -5.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile124"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile124"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile125" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3901, 0.151, -5.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile125"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile125"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile126" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3901, 0.151, -5.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile126"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile126"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile127" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6099, 0.151, -7.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile127"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile127"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile128" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6099, 0.151, -7.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile128"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile128"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile129" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60988, 0.151, -7.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile129"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile129"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile130" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60988, 0.151, -7.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile130"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile130"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile131" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60988, 0.151, -7.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile131"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile131"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile132" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60988, 0.151, -7.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile132"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile132"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile133" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60988, 0.151, -7.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile133"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile133"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile134" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390121, 0.151, -7.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile134"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile134"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile135" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39012, 0.151, -7.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile135"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile135"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile136" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39012, 0.151, -7.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile136"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile136"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile137" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39012, 0.151, -7.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile137"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile137"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile138" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39012, 0.151, -7.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile138"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile138"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile139" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3901, 0.151, -7.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile139"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile139"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile140" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3901, 0.151, -7.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile140"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile140"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile141" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6099, 0.151, -9.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile141"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile141"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile142" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6099, 0.151, -9.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile142"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile142"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile143" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60988, 0.151, -9.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile143"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile143"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile144" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60988, 0.151, -9.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile144"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile144"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile145" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60988, 0.151, -9.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile145"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile145"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile146" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60988, 0.151, -9.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile146"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile146"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile147" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60988, 0.151, -9.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile147"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile147"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile148" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390121, 0.151, -9.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile148"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile148"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile149" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39012, 0.151, -9.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile149"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile149"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile150" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39012, 0.151, -9.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile150"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile150"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile151" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39012, 0.151, -9.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile151"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile151"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile152" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39012, 0.151, -9.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile152"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile152"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile153" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3901, 0.151, -9.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile153"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile153"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile154" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3901, 0.151, -9.00407)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile154"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile154"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile155" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6099, 0.151, -11.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile155"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile155"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile156" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6099, 0.151, -11.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile156"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile156"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile157" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60988, 0.151, -11.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile157"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile157"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile158" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60988, 0.151, -11.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile158"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile158"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile159" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60988, 0.151, -11.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile159"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile159"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile160" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60988, 0.151, -11.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile160"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile160"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile161" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60988, 0.151, -11.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile161"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile161"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile162" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390121, 0.151, -11.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile162"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile162"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile163" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39012, 0.151, -11.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile163"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile163"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile164" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39012, 0.151, -11.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile164"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile164"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile165" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39012, 0.151, -11.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile165"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile165"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile166" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39012, 0.151, -11.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile166"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile166"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile167" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3901, 0.151, -11.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile167"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile167"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile168" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3901, 0.151, -11.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile168"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile168"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile169" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6099, 0.151, -13.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile169"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile169"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile170" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6099, 0.151, -13.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile170"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile170"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile171" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60988, 0.151, -13.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile171"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile171"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile172" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60988, 0.151, -13.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile172"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile172"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile173" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60988, 0.151, -13.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile173"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile173"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile174" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60988, 0.151, -13.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile174"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile174"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile175" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60988, 0.151, -13.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile175"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile175"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile176" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390121, 0.151, -13.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile176"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile176"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile177" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39012, 0.151, -13.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile177"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile177"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile178" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39012, 0.151, -13.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile178"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile178"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile179" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39012, 0.151, -13.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile179"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile179"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile180" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39012, 0.151, -13.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile180"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile180"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile181" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3901, 0.151, -13.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile181"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile181"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile182" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3901, 0.151, -13.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile182"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile182"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile183" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6099, 0.151, -15.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile183"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile183"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile184" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6099, 0.151, -15.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile184"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile184"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile185" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.60988, 0.151, -15.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile185"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile185"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile186" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60988, 0.151, -15.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile186"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile186"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile187" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60988, 0.151, -15.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile187"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile187"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile188" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60988, 0.151, -15.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile188"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile188"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile189" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60988, 0.151, -15.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile189"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile189"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile190" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390121, 0.151, -15.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile190"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile190"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile191" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39012, 0.151, -15.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile191"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile191"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile192" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39012, 0.151, -15.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile192"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile192"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile193" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39012, 0.151, -15.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile193"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile193"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile194" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39012, 0.151, -15.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile194"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile194"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile195" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3901, 0.151, -15.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile195"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile195"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Tile196" type="Area3D" parent="TestRoom/TileContainer" groups=["ColoredTiles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3901, 0.151, -15.0041)
+script = ExtResource("4_6c02p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/TileContainer/Tile196"]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoom/TileContainer/Tile196"]
+mesh = SubResource("BoxMesh_aiaw3")
+
+[node name="Timer" type="Timer" parent="TestRoom/TileContainer"]
+wait_time = 8.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i1r7f")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6, 0)
+
+[connection signal="ready" from="TestRoom/TileContainer/Timer" to="Player" method="_on_timer_ready"]
+[connection signal="timeout" from="TestRoom/TileContainer/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="timeout" from="TestRoom/TileContainer/Timer" to="TestRoom/TileContainer" method="_on_timer_timeout"]

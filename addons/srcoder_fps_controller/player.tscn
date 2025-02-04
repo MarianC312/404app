@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://dy26xc485fhld"]
+
+[ext_resource type="Script" path="res://addons/srcoder_fps_controller/assets/scripts/player.gd" id="1_f6swd"]
+[ext_resource type="PackedScene" uid="uid://4myu81xye43l" path="res://Scenes/Menues/Pause/PauseMenu.tscn" id="2_a2ogr"]
+[ext_resource type="Material" uid="uid://xksju4002ur7" path="res://addons/srcoder_fps_controller/assets/materials/white.material" id="2_fs15m"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ntw7j"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ha1jo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d6aor"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_go1l0"]
+viewport_path = NodePath("CameraPivot/Sprite3D/SubViewport")
+
+[node name="Player" type="CharacterBody3D"]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10191, 0)
+script = ExtResource("1_f6swd")
+mouse_sensitivity = 2.0
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_fs15m")
+gi_mode = 0
+mesh = SubResource("CapsuleMesh_ntw7j")
+surface_material_override/0 = ExtResource("2_fs15m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ha1jo")
+
+[node name="Area3D" type="Area3D" parent="." groups=["player"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_d6aor")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 4.5, 3)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+
+[node name="Sprite3D" type="Sprite3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 3.25, -5)
+texture = SubResource("ViewportTexture_go1l0")
+
+[node name="SubViewport" type="SubViewport" parent="CameraPivot/Sprite3D"]
+transparent_bg = true
+size = Vector2i(1000, 100)
+
+[node name="MarginContainer" type="MarginContainer" parent="CameraPivot/Sprite3D/SubViewport"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 86.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CameraPivot/Sprite3D/SubViewport/MarginContainer"]
+layout_mode = 2
+
+[node name="HP" type="ProgressBar" parent="CameraPivot/Sprite3D/SubViewport/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+max_value = 0.0
+step = 1.0
+
+[node name="DASH" type="Label" parent="CameraPivot/Sprite3D/SubViewport/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SCORE" type="Label" parent="CameraPivot/Sprite3D/SubViewport/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PauseMenu" parent="CameraPivot" instance=ExtResource("2_a2ogr")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgt6eywdxumfc"]
+
+[ext_resource type="Script" path="res://Scripts/tile.gd" id="1_20usj"]
+[ext_resource type="Shader" path="res://Scenes/Assets/tile_01.gdshader" id="2_2ksqk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ytnku"]
+size = Vector3(2, 0.05, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5m7ur"]
+render_priority = 0
+shader = ExtResource("2_2ksqk")
+shader_parameter/base_color = Color(0, 1, 0, 1)
+shader_parameter/glow_intensity = 1.0
+shader_parameter/glow_speed = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_aiaw3"]
+size = Vector3(2, 0.05, 2)
+
+[node name="Tile01" type="Area3D" groups=["ColoredTiles"]]
+script = ExtResource("1_20usj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ytnku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_5m7ur")
+mesh = SubResource("BoxMesh_aiaw3")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

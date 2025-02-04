@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxb1sq1vsrsuc"]
+
+[ext_resource type="Script" path="res://Scenes/Menues/Option/option_menu.gd" id="1_oxnqu"]
+
+[node name="OptionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oxnqu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.099
+anchor_right = 0.389
+anchor_bottom = 0.889
+offset_left = 64.0
+offset_top = 127.848
+offset_right = -64.128
+offset_bottom = -128.072
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Sound" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+button_pressed = true
+text = "Sound"
+
+[node name="Music" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+button_pressed = true
+text = "Music"
+
+[node name="Back" type="Button" parent="."]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.333
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 504.0
+offset_right = -69.616
+offset_bottom = -69.0
+text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
