@@ -1,29 +1,69 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgt6eywdxumfc"]
+[gd_scene load_steps=9 format=4 uid="uid://cgt6eywdxumfc"]
 
 [ext_resource type="Script" path="res://Scripts/tile.gd" id="1_20usj"]
 [ext_resource type="Shader" path="res://Scenes/Assets/tile_01.gdshader" id="2_2ksqk"]
+[ext_resource type="Texture2D" uid="uid://buqx0c5iev5vp" path="res://Blender/tile_tile.png" id="2_777ur"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ytnku"]
-size = Vector3(2, 0.05, 2)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4ofe"]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_texture = ExtResource("2_777ur")
+roughness = 0.5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5m7ur"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_7pc7f"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34359742465,
+"index_count": 84,
+"index_data": PackedByteArray("AAAPAAQAAAAOAA8AAwAJAAgAAwAHAAkABwALAAkABwAFAAsABQADAAEABQAHAAMAAQAIAAoAAQADAAgABQAKAAsABQABAAoAAgAJAAYAAgAIAAkAAAAIAAIAAAAKAAgABgALAAQABgAJAAsABAAKAAAABAALAAoADgANAA8ADgAMAA0AAgAOAAAAAgAMAA4ABAANAAYABAAPAA0ABgAMAAIABgANAAwA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("UrxpPwAAgD9SvGm/AACAPwAAgL8AAIC/UrxpPwAAgD9SvGk/AACAPwAAgL8AAIA/UrxpvwAAgD9SvGm/AACAvwAAgL8AAIC/UrxpvwAAgD9SvGk/AACAvwAAgL8AAIA/AACAPwAAgD8AAIA/AACAvwAAgD8AAIA/AACAPwAAgD8AAIC/AACAvwAAgD8AAIC/UrxpPzinjj5SvGk/Urxpvzinjj5SvGk/UrxpPzinjj5SvGm/Urxpvzinjj5SvGm/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2wbyl"]
+resource_name = "tile_Cube"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("Kd70PuyQBT8p3vQ+7JAFPyne9D7skAU/AADAPgAAAD8AAMA+AAAAPwAAAAAAAAAAKd70PhRvej8p3vQ+FG96Pyne9D4Ub3o/AADAPgAAgD4AAMA+AACAPgAAAD8AAAAAcB2yPOyQBT9wHbI87JAFP3AdsjzskAU/AADAPgAAQD8AAAA+AAAAPwAAwD4AAEA/cB2yPBRvej9wHbI8FG96P3AdsjwUb3o/AADAPgAAgD8AAAA+AACAPgAAwD4AAAAAAAAgPwAAgD4AAAA/AACAPwAAAD8AAAA/AAAgPwAAgD8AACA/AAAAAAAAAAAAAIA/AAAgPwAAAD8AAAA/AAAAPwAAAAAAAAA/AAAgPwAAQD8AACA/AABAPwAAAAAAAAA/Kd70PhRvej8p3vQ+FG96PzPwdz+rQQY/cB2yPBRvej/Z5zA/q0EGP3AdsjwUb3o/Kd70PuyQBT8p3vQ+7JAFPzPwdz9E5Xw+cB2yPOyQBT/Z5zA/ROV8PnAdsjzskAU/"),
+"format": 34359742487,
+"index_count": 84,
+"index_data": PackedByteArray("AQAtAAwAAQArAC0ACgAcABgACgAXABwAFQAhABsAFQAPACEAEAAJAAMAEAAWAAkABQAaACAABQALABoAEQAeACIAEQAEAB4ACAAdABMACAAZAB0AAgAZAAgAAgAfABkAEwAjAA0AEwAdACMADQAfAAIADQAjAB8ALAAoAC4ALAAmACgABgAqAAAABgAkACoADgApABQADgAvACkAEgAlAAcAEgAnACUA"),
+"material": SubResource("StandardMaterial3D_t4ofe"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("UrxpPwAAgD9SvGm/UrxpPwAAgD9SvGm/UrxpPwAAgD9SvGm/AACAPwAAgL8AAIC/AACAPwAAgL8AAIC/AACAPwAAgL8AAIC/UrxpPwAAgD9SvGk/UrxpPwAAgD9SvGk/UrxpPwAAgD9SvGk/AACAPwAAgL8AAIA/AACAPwAAgL8AAIA/AACAPwAAgL8AAIA/UrxpvwAAgD9SvGm/UrxpvwAAgD9SvGm/UrxpvwAAgD9SvGm/AACAvwAAgL8AAIC/AACAvwAAgL8AAIC/AACAvwAAgL8AAIC/UrxpvwAAgD9SvGk/UrxpvwAAgD9SvGk/UrxpvwAAgD9SvGk/AACAvwAAgL8AAIA/AACAvwAAgL8AAIA/AACAvwAAgL8AAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAvwAAgD8AAIA/AACAvwAAgD8AAIA/AACAvwAAgD8AAIA/AACAPwAAgD8AAIC/AACAPwAAgD8AAIC/AACAPwAAgD8AAIC/AACAvwAAgD8AAIC/AACAvwAAgD8AAIC/AACAvwAAgD8AAIC/UrxpPzinjj5SvGk/UrxpPzinjj5SvGk/UrxpPzinjj5SvGk/Urxpvzinjj5SvGk/Urxpvzinjj5SvGk/Urxpvzinjj5SvGk/UrxpPzinjj5SvGm/UrxpPzinjj5SvGm/UrxpPzinjj5SvGm/Urxpvzinjj5SvGm/Urxpvzinjj5SvGm/Urxpvzinjj5SvGm/AAD/f////7//f/9/////P/9////+//+//38AAP///7///////3///////3//f/+/AAD/f////7//////////v/9///////+//38AAP///7//f/9//3///////3//f/+//3//f////z//f///////v////3////+/AAD/f/9/////fwAA////v///////f////////////7//f////v//v////3////+/AAD/f/9/////fwAA////v/9//3//f////3//f/9/////f///////v////3//f/+/AAD/f/9/////f/9//3////9////+//+///////9/////f////v//v////3//f/+/AAD/f/9//////////3////9///////+/AAD/f////7//////////v/9///////+//////////7//f///////v////3////+/AAD/f////7//f/9/////P/9///////+//3//f////z//f///////v////3////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7pc7f")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mvvrj"]
 render_priority = 0
 shader = ExtResource("2_2ksqk")
 shader_parameter/base_color = Color(0, 1, 0, 1)
 shader_parameter/glow_intensity = 1.0
 shader_parameter/glow_speed = 2.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_aiaw3"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ytnku"]
 size = Vector3(2, 0.05, 2)
 
 [node name="Tile01" type="Area3D" groups=["ColoredTiles"]]
 script = ExtResource("1_20usj")
 
+[node name="tile" type="Node3D" parent="."]
+
+[node name="Cube" type="MeshInstance3D" parent="tile"]
+transform = Transform3D(1, 0, 0, 0, 0.025, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_2wbyl")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_mvvrj")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ytnku")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("ShaderMaterial_5m7ur")
-mesh = SubResource("BoxMesh_aiaw3")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

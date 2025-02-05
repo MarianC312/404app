@@ -1,46 +1,51 @@
 extends CharacterBody3D
 
-## The movement speed in m/s. Default is 5.
-@export_range(1.0,30.0) var speed : float = 5.0
-## The Jump Velocity in m/s- default to 6.0
-@export_range(2.0,10.0) var jump_velocity : float = 6.0
-
+@export_category("Configuration")
 ## Mouse sensitivity for looking around. Default is 3.0
 @export_range(1.0,5.0) var mouse_sensitivity = 3.0
-var mouse_motion : Vector2 = Vector2.ZERO
-var pitch = 0
-
 ## The amount of acceleration on the ground- less feels floaty, more is snappy-[br]Default is 4
 @export_range(1.0,10.0) var ground_acceleration := 4.0
 ## the amount of acceleration when in the air. less feels more floaty more is more snappy.[br]Default is 0.5
 @export_range(0.0,5.0) var air_acceleration := 0.5
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+## Get the gravity from the project settings to be synced with RigidBody nodes.
 @export_range(5.0,25.0) var gravity : float = 15.0
+
+# Vars
+@export_category("Statistics")
+## Player health, configurated by MAXHEALTH const at _ready().
+@export var health : int
+## Score won by player in match.
+@export var score : int = 0
+## Available hability for player. Applies a force to body in looking direction
+@export var dash : int = 0
+## Available hability for player. Prevents damage when true.
+@export var shield : bool = false
+## The movement speed in m/s. Default is 5.
+@export_range(1.0,30.0) var speed : float = 5.0
+## The Jump Velocity in m/s- default to 6.0
+@export_range(2.0,10.0) var jump_velocity : float = 6.0
+var takeDmg : bool = false
+var alreadyDmgd : bool = false
+var tile : Area3D
+var game_paused : bool = false
+
+# Const
+const MAXHEALTH : int = 10
+const MAXDASH : int = 2
+const MAXSHIELD : int = 1
+const DASHMAGNITUDE : float = 10.0
+const DASHDURATION : float = 2.0
+
+var dash_elapsed_time : float = 0.0
+var mouse_motion : Vector2 = Vector2.ZERO
+var pitch = 0
 
 # the camera pivot for head pitch movement
 @onready var camera_pivot : Node3D = $CameraPivot
 @onready var healthBar : ProgressBar = $CameraPivot/Sprite3D/SubViewport/MarginContainer/VBoxContainer/HP
 @onready var dashText : Label = $CameraPivot/Sprite3D/SubViewport/MarginContainer/VBoxContainer/DASH
 @onready var scoreText : Label = $CameraPivot/Sprite3D/SubViewport/MarginContainer/VBoxContainer/SCORE
-
 @onready var pause_menu = $CameraPivot/PauseMenu
-
-
-# Const
-const MAXHEALTH : int = 10
-const MAXDASH : int = 2
-const MAXSHIELD : int = 1
-
-# Vars
-var health : int
-var dash : int = 0
-var shield : bool = false
-var score : int = 0
-var takeDmg : bool = false
-var alreadyDmgd : bool = false
-var tile : Area3D
-var game_paused : bool = false
 
 
 func _ready() -> void:
