@@ -1,21 +1,24 @@
-[gd_scene load_steps=9 format=4 uid="uid://cgt6eywdxumfc"]
+[gd_scene load_steps=12 format=4 uid="uid://cgt6eywdxumfc"]
 
 [ext_resource type="Script" path="res://Scripts/tile.gd" id="1_20usj"]
 [ext_resource type="Shader" path="res://Scenes/Assets/tile_01.gdshader" id="2_2ksqk"]
 [ext_resource type="Texture2D" uid="uid://buqx0c5iev5vp" path="res://Blender/tile_tile.png" id="2_777ur"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hba40"]
-render_priority = 0
-shader = ExtResource("2_2ksqk")
-shader_parameter/base_color = Color(0.32, 0.8, 0.86, 1)
-shader_parameter/glow_intensity = 1.0
-shader_parameter/glow_speed = 5.0
+[sub_resource type="Gradient" id="Gradient_wxkbf"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jtvbv"]
+seed = 3
+frequency = 0.0331
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ycsfj"]
+color_ramp = SubResource("Gradient_wxkbf")
+noise = SubResource("FastNoiseLite_jtvbv")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4ofe"]
 resource_name = "Material.001"
-next_pass = SubResource("ShaderMaterial_hba40")
 albedo_texture = ExtResource("2_777ur")
-roughness = 0.5
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_ycsfj")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7pc7f"]
 _surfaces = [{
@@ -49,6 +52,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7pc7f")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gxd3u"]
+render_priority = 0
+shader = ExtResource("2_2ksqk")
+shader_parameter/base_color = Color(0.32, 0.8, 0.86, 1)
+shader_parameter/glow_intensity = 1.056
+shader_parameter/glow_speed = 5.0
+shader_parameter/hue_shift = 0.0
+shader_parameter/albedo_texture = ExtResource("2_777ur")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ytnku"]
 size = Vector3(2, 0.05, 2)
 
@@ -61,6 +73,7 @@ script = ExtResource("1_20usj")
 transform = Transform3D(1, 0, 0, 0, 0.025, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_2wbyl")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_gxd3u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ytnku")

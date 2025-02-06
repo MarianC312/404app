@@ -46,8 +46,595 @@ script = ExtResource("3_qbu74")
 [node name="Timer" type="Timer" parent="TestRoom/TileContainer"]
 wait_time = 8.0
 
-[node name="Tile01" parent="TestRoom/TileContainer" instance=ExtResource("5_b2qeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5015, 0.218597, 8.04345)
+[node name="Tiles" type="Node3D" parent="TestRoom/TileContainer"]
+
+[node name="Tile01" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6022, 0.151, 11.0015)
+
+[node name="Tile02" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6022, 0.151, 11.0015)
+
+[node name="Tile03" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6022, 0.151, 11.0015)
+
+[node name="Tile04" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6022, 0.151, 11.0015)
+
+[node name="Tile05" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6022, 0.151, 11.0015)
+
+[node name="Tile06" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6022, 0.151, 11.0015)
+
+[node name="Tile07" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6022, 0.151, 11.0015)
+
+[node name="Tile08" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3978, 0.151, 11.0015)
+
+[node name="Tile09" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3978, 0.151, 11.0015)
+
+[node name="Tile10" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3978, 0.151, 11.0015)
+
+[node name="Tile11" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3978, 0.151, 11.0015)
+
+[node name="Tile12" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3978, 0.151, 11.0015)
+
+[node name="Tile13" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3978, 0.151, 11.0015)
+
+[node name="Tile14" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3978, 0.151, 11.0015)
+
+[node name="Tile15" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6022, 0.151, 9.0015)
+
+[node name="Tile16" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6022, 0.151, 9.0015)
+
+[node name="Tile17" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6022, 0.151, 9.0015)
+
+[node name="Tile18" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6022, 0.151, 9.0015)
+
+[node name="Tile19" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6022, 0.151, 9.0015)
+
+[node name="Tile20" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6022, 0.151, 9.0015)
+
+[node name="Tile21" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6022, 0.151, 9.0015)
+
+[node name="Tile22" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3978, 0.151, 9.0015)
+
+[node name="Tile23" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3978, 0.151, 9.0015)
+
+[node name="Tile24" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3978, 0.151, 9.0015)
+
+[node name="Tile25" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3978, 0.151, 9.0015)
+
+[node name="Tile26" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3978, 0.151, 9.0015)
+
+[node name="Tile27" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3978, 0.151, 9.0015)
+
+[node name="Tile28" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3978, 0.151, 9.0015)
+
+[node name="Tile29" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6022, 0.151, 7.0015)
+
+[node name="Tile30" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6022, 0.151, 7.0015)
+
+[node name="Tile31" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6022, 0.151, 7.0015)
+
+[node name="Tile32" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6022, 0.151, 7.0015)
+
+[node name="Tile33" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6022, 0.151, 7.0015)
+
+[node name="Tile34" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6022, 0.151, 7.0015)
+
+[node name="Tile35" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6022, 0.151, 7.0015)
+
+[node name="Tile36" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3978, 0.151, 7.0015)
+
+[node name="Tile37" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3978, 0.151, 7.0015)
+
+[node name="Tile38" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3978, 0.151, 7.0015)
+
+[node name="Tile39" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3978, 0.151, 7.0015)
+
+[node name="Tile40" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3978, 0.151, 7.0015)
+
+[node name="Tile41" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3978, 0.151, 7.0015)
+
+[node name="Tile42" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3978, 0.151, 7.0015)
+
+[node name="Tile43" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6022, 0.151, 5.0015)
+
+[node name="Tile44" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6022, 0.151, 5.0015)
+
+[node name="Tile45" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6022, 0.151, 5.0015)
+
+[node name="Tile46" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6022, 0.151, 5.0015)
+
+[node name="Tile47" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6022, 0.151, 5.0015)
+
+[node name="Tile48" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6022, 0.151, 5.0015)
+
+[node name="Tile49" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6022, 0.151, 5.0015)
+
+[node name="Tile50" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3978, 0.151, 5.0015)
+
+[node name="Tile51" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3978, 0.151, 5.0015)
+
+[node name="Tile52" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3978, 0.151, 5.0015)
+
+[node name="Tile53" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3978, 0.151, 5.0015)
+
+[node name="Tile54" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3978, 0.151, 5.0015)
+
+[node name="Tile55" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3978, 0.151, 5.0015)
+
+[node name="Tile56" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3978, 0.151, 5.0015)
+
+[node name="Tile57" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6022, 0.151, 3.0015)
+
+[node name="Tile58" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6022, 0.151, 3.0015)
+
+[node name="Tile59" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6022, 0.151, 3.0015)
+
+[node name="Tile60" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6022, 0.151, 3.0015)
+
+[node name="Tile61" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6022, 0.151, 3.0015)
+
+[node name="Tile62" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6022, 0.151, 3.0015)
+
+[node name="Tile63" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6022, 0.151, 3.0015)
+
+[node name="Tile64" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3978, 0.151, 3.0015)
+
+[node name="Tile65" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3978, 0.151, 3.0015)
+
+[node name="Tile66" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3978, 0.151, 3.0015)
+
+[node name="Tile67" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3978, 0.151, 3.0015)
+
+[node name="Tile68" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3978, 0.151, 3.0015)
+
+[node name="Tile69" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3978, 0.151, 3.0015)
+
+[node name="Tile70" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3978, 0.151, 3.0015)
+
+[node name="Tile71" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6022, 0.151, 1.0015)
+
+[node name="Tile72" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6022, 0.151, 1.0015)
+
+[node name="Tile73" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6022, 0.151, 1.0015)
+
+[node name="Tile74" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6022, 0.151, 1.0015)
+
+[node name="Tile75" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6022, 0.151, 1.0015)
+
+[node name="Tile76" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6022, 0.151, 1.0015)
+
+[node name="Tile77" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6022, 0.151, 1.0015)
+
+[node name="Tile78" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3978, 0.151, 1.0015)
+
+[node name="Tile79" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3978, 0.151, 1.0015)
+
+[node name="Tile80" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3978, 0.151, 1.0015)
+
+[node name="Tile81" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3978, 0.151, 1.0015)
+
+[node name="Tile82" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3978, 0.151, 1.0015)
+
+[node name="Tile83" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3978, 0.151, 1.0015)
+
+[node name="Tile84" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3978, 0.151, 1.0015)
+
+[node name="Tile85" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6022, 0.151, -0.9985)
+
+[node name="Tile86" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6022, 0.151, -0.9985)
+
+[node name="Tile87" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6022, 0.151, -0.9985)
+
+[node name="Tile88" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6022, 0.151, -0.9985)
+
+[node name="Tile89" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6022, 0.151, -0.9985)
+
+[node name="Tile90" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6022, 0.151, -0.9985)
+
+[node name="Tile91" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6022, 0.151, -0.9985)
+
+[node name="Tile92" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3978, 0.151, -0.9985)
+
+[node name="Tile93" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3978, 0.151, -0.9985)
+
+[node name="Tile94" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3978, 0.151, -0.9985)
+
+[node name="Tile95" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3978, 0.151, -0.9985)
+
+[node name="Tile96" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3978, 0.151, -0.9985)
+
+[node name="Tile97" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3978, 0.151, -0.9985)
+
+[node name="Tile98" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3978, 0.151, -0.9985)
+
+[node name="Tile99" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6022, 0.151, -2.9985)
+
+[node name="Tile100" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6022, 0.151, -2.9985)
+
+[node name="Tile101" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6022, 0.151, -2.9985)
+
+[node name="Tile102" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6022, 0.151, -2.9985)
+
+[node name="Tile103" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6022, 0.151, -2.9985)
+
+[node name="Tile104" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6022, 0.151, -2.9985)
+
+[node name="Tile105" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6022, 0.151, -2.9985)
+
+[node name="Tile106" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3978, 0.151, -2.9985)
+
+[node name="Tile107" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3978, 0.151, -2.9985)
+
+[node name="Tile108" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3978, 0.151, -2.9985)
+
+[node name="Tile109" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3978, 0.151, -2.9985)
+
+[node name="Tile110" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3978, 0.151, -2.9985)
+
+[node name="Tile111" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3978, 0.151, -2.9985)
+
+[node name="Tile112" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3978, 0.151, -2.9985)
+
+[node name="Tile113" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6022, 0.151, -4.9985)
+
+[node name="Tile114" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6022, 0.151, -4.9985)
+
+[node name="Tile115" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6022, 0.151, -4.9985)
+
+[node name="Tile116" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6022, 0.151, -4.9985)
+
+[node name="Tile117" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6022, 0.151, -4.9985)
+
+[node name="Tile118" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6022, 0.151, -4.9985)
+
+[node name="Tile119" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6022, 0.151, -4.9985)
+
+[node name="Tile120" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3978, 0.151, -4.9985)
+
+[node name="Tile121" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3978, 0.151, -4.9985)
+
+[node name="Tile122" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3978, 0.151, -4.9985)
+
+[node name="Tile123" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3978, 0.151, -4.9985)
+
+[node name="Tile124" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3978, 0.151, -4.9985)
+
+[node name="Tile125" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3978, 0.151, -4.9985)
+
+[node name="Tile126" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3978, 0.151, -4.9985)
+
+[node name="Tile127" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6022, 0.151, -6.9985)
+
+[node name="Tile128" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6022, 0.151, -6.9985)
+
+[node name="Tile129" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6022, 0.151, -6.9985)
+
+[node name="Tile130" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6022, 0.151, -6.9985)
+
+[node name="Tile131" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6022, 0.151, -6.9985)
+
+[node name="Tile132" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6022, 0.151, -6.9985)
+
+[node name="Tile133" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6022, 0.151, -6.9985)
+
+[node name="Tile134" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3978, 0.151, -6.9985)
+
+[node name="Tile135" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3978, 0.151, -6.9985)
+
+[node name="Tile136" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3978, 0.151, -6.9985)
+
+[node name="Tile137" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3978, 0.151, -6.9985)
+
+[node name="Tile138" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3978, 0.151, -6.9985)
+
+[node name="Tile139" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3978, 0.151, -6.9985)
+
+[node name="Tile140" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3978, 0.151, -6.9985)
+
+[node name="Tile141" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6022, 0.151, -8.9985)
+
+[node name="Tile142" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6022, 0.151, -8.9985)
+
+[node name="Tile143" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6022, 0.151, -8.9985)
+
+[node name="Tile144" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6022, 0.151, -8.9985)
+
+[node name="Tile145" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6022, 0.151, -8.9985)
+
+[node name="Tile146" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6022, 0.151, -8.9985)
+
+[node name="Tile147" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6022, 0.151, -8.9985)
+
+[node name="Tile148" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3978, 0.151, -8.9985)
+
+[node name="Tile149" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3978, 0.151, -8.9985)
+
+[node name="Tile150" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3978, 0.151, -8.9985)
+
+[node name="Tile151" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3978, 0.151, -8.9985)
+
+[node name="Tile152" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3978, 0.151, -8.9985)
+
+[node name="Tile153" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3978, 0.151, -8.9985)
+
+[node name="Tile154" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3978, 0.151, -8.9985)
+
+[node name="Tile155" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6022, 0.151, -10.9985)
+
+[node name="Tile156" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6022, 0.151, -10.9985)
+
+[node name="Tile157" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6022, 0.151, -10.9985)
+
+[node name="Tile158" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6022, 0.151, -10.9985)
+
+[node name="Tile159" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6022, 0.151, -10.9985)
+
+[node name="Tile160" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6022, 0.151, -10.9985)
+
+[node name="Tile161" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6022, 0.151, -10.9985)
+
+[node name="Tile162" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3978, 0.151, -10.9985)
+
+[node name="Tile163" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3978, 0.151, -10.9985)
+
+[node name="Tile164" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3978, 0.151, -10.9985)
+
+[node name="Tile165" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3978, 0.151, -10.9985)
+
+[node name="Tile166" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3978, 0.151, -10.9985)
+
+[node name="Tile167" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3978, 0.151, -10.9985)
+
+[node name="Tile168" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3978, 0.151, -10.9985)
+
+[node name="Tile169" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6022, 0.151, -12.9985)
+
+[node name="Tile170" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6022, 0.151, -12.9985)
+
+[node name="Tile171" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6022, 0.151, -12.9985)
+
+[node name="Tile172" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6022, 0.151, -12.9985)
+
+[node name="Tile173" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6022, 0.151, -12.9985)
+
+[node name="Tile174" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6022, 0.151, -12.9985)
+
+[node name="Tile175" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6022, 0.151, -12.9985)
+
+[node name="Tile176" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3978, 0.151, -12.9985)
+
+[node name="Tile177" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3978, 0.151, -12.9985)
+
+[node name="Tile178" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3978, 0.151, -12.9985)
+
+[node name="Tile179" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3978, 0.151, -12.9985)
+
+[node name="Tile180" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3978, 0.151, -12.9985)
+
+[node name="Tile181" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3978, 0.151, -12.9985)
+
+[node name="Tile182" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3978, 0.151, -12.9985)
+
+[node name="Tile183" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6022, 0.151, -14.9985)
+
+[node name="Tile184" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6022, 0.151, -14.9985)
+
+[node name="Tile185" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6022, 0.151, -14.9985)
+
+[node name="Tile186" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6022, 0.151, -14.9985)
+
+[node name="Tile187" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6022, 0.151, -14.9985)
+
+[node name="Tile188" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6022, 0.151, -14.9985)
+
+[node name="Tile189" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6022, 0.151, -14.9985)
+
+[node name="Tile190" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3978, 0.151, -14.9985)
+
+[node name="Tile191" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3978, 0.151, -14.9985)
+
+[node name="Tile192" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3978, 0.151, -14.9985)
+
+[node name="Tile193" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3978, 0.151, -14.9985)
+
+[node name="Tile194" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3978, 0.151, -14.9985)
+
+[node name="Tile195" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3978, 0.151, -14.9985)
+
+[node name="Tile196" parent="TestRoom/TileContainer/Tiles" instance=ExtResource("5_b2qeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3978, 0.151, -14.9985)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i1r7f")
