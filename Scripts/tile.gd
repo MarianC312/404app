@@ -32,7 +32,7 @@ func _change_tile_material(change: bool) -> void:
 	if change == true:
 		_tile_power_shuffle()
 		tileType = tilePowerList[0]
-		mesh.set_surface_override_material(0, tilePower[tileType]["material"])
+		# mesh.set_surface_override_material(0, tilePower[tileType]["material"])
 		tileDmg = false
 	else:
 		mesh.set_surface_override_material(0, tilePower["red"]["material"])

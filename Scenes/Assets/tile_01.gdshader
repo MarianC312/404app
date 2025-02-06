@@ -19,7 +19,9 @@ void fragment() {
 
     // Aplicar el color final
     ALBEDO = color;
-    EMISSION = color * glow_intensity; // Hace que el objeto emita luz
+	ROUGHNESS = 0.2;
+	EMISSION = color * glow_intensity; // Hace que el objeto emita luz
+	
 }
 
 //void light() {
