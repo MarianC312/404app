@@ -111,7 +111,6 @@ func _on_timer_timeout() -> void:
 			"green":
 				_heal_up()
 			"gold":
-				_heal_up()
 				_dash_up()
 			"purple":
 				_shield_up()

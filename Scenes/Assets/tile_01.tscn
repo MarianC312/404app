@@ -53,6 +53,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7pc7f")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gxd3u"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_2ksqk")
 shader_parameter/base_color = Color(0.32, 0.8, 0.86, 1)
