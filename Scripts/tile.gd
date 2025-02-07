@@ -5,22 +5,22 @@ var tilePower = {
 	"green": {
 		"material": preload("res://Materials/TileMaterials/green.tres"),
 		"power": "health",
-		"shift_hue": 0.5 
+		"shift_hue": 0.5
 	},
 	"gold": {
 		"material": preload("res://Materials/TileMaterials/gold.tres"),
 		"power": "dash",
-		"shift_hue": 0.5 
+		"shift_hue": 0.325
 	},
 	"purple": {
 		"material": preload("res://Materials/TileMaterials/purple.tres"),
 		"power": "shield",
-		"shift_hue": 0.5 
+		"shift_hue": 1.0
 	},
 	"red": {
 		"material": preload("res://Materials/TileMaterials/red.tres"),
 		"power": "damage",
-		"shift_hue": 0.5 
+		"shift_hue": 0.185
 	}
 }
 var tilePowerList : Array
@@ -44,16 +44,18 @@ func _change_tile_material(change: bool) -> void:
 	print(change)
 	if change == true:
 		_tile_power_shuffle()
+		var tileTypeBack = tileType
 		tileType = tilePowerList[0]
-		# mesh.set_surface_override_material(0, tilePower[tileType]["material"])
-		material.set_shader_parameter("hue_shift", 0.5)
-		tileDmg = false
-		cube.get_active_material(0)
+		if tileType != tileTypeBack:
+			# mesh.set_surface_override_material(0, tilePower[tileType]["material"])
+			material.set_shader_parameter("hue_shift", tilePower[tileType]["shift_hue"])
+			tileDmg = false
 	else:
-		# mesh.set_surface_override_material(0, tilePower["red"]["material"])
-		material.set_shader_parameter("hue_shift", 0.0)
-		tileType = "red"
-		tileDmg = true
+		if tileType != "red":
+			# mesh.set_surface_override_material(0, tilePower["red"]["material"])
+			material.set_shader_parameter("hue_shift", tilePower["red"]["shift_hue"])
+			tileType = "red"
+			tileDmg = true
 
 func _tile_power_shuffle() -> void:
 	tilePowerList.shuffle()

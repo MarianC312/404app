@@ -58,7 +58,7 @@ shader = ExtResource("2_2ksqk")
 shader_parameter/base_color = Color(0.32, 0.8, 0.86, 1)
 shader_parameter/glow_intensity = 1.056
 shader_parameter/glow_speed = 5.0
-shader_parameter/hue_shift = 0.0
+shader_parameter/hue_shift = 0.182
 shader_parameter/albedo_texture = ExtResource("2_777ur")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ytnku"]
