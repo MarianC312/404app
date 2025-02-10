@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbgpsje74goco"]
+
+[ext_resource type="Shader" uid="uid://cqor66sxkcdm3" path="res://Scripts/Shaders/shield.tres" id="1_tne0e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lyiy3"]
+render_priority = 0
+shader = ExtResource("1_tne0e")
+shader_parameter/speed = 0.2
+shader_parameter/shield_color = Color(0.858824, 0.117647, 0.972549, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3eqtf"]
+material = SubResource("ShaderMaterial_lyiy3")
+radius = 1.5
+height = 3.0
+
+[node name="Node3D" type="Area3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_3eqtf")
