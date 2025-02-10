@@ -50,6 +50,7 @@ var pitch : int = 0
 @onready var pauseMenu : Control = $CameraPivot/PauseMenu
 @onready var shield0 : Area3D = $Shield0
 @onready var dashTimer : Timer = $DashTimer
+@onready var animator : AnimationPlayer = $Body/Character/AnimationPlayer
 
 
 func _ready() -> void:
@@ -58,6 +59,8 @@ func _ready() -> void:
 	health = MAXHEALTH
 	cameraPivot.rotation.x = -45
 	dashTimer.wait_time = DASHDURATION
+	animator.current_animation = "Armature|Idle"
+	animator.play()
 
 func _physics_process(delta : float):
 	# Add the gravity.
@@ -79,6 +82,8 @@ func _physics_process(delta : float):
 	if isDashing:
 		velocity = transform.basis.z * -DASHSPEED
 	elif is_on_floor():
+		animator.current_animation = "Armature|Walk"
+		animator.play()
 		velocity.x = move_toward(velocity.x , target_velocity.x * speed , speed * groundAcceleration * delta)
 		velocity.z = move_toward(velocity.z, target_velocity.z * speed, speed * groundAcceleration * delta)
 	else:
