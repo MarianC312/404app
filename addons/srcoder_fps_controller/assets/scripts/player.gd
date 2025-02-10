@@ -2,11 +2,11 @@ extends CharacterBody3D
 
 @export_category("Configuration")
 ## Mouse sensitivity for looking around. Default is 3.0
-@export_range(1.0,5.0) var mouse_sensitivity = 3.0
+@export_range(1.0,5.0) var mouseSensitivity = 3.0
 ## The amount of acceleration on the ground- less feels floaty, more is snappy-[br]Default is 4
-@export_range(1.0,10.0) var ground_acceleration := 4.0
+@export_range(1.0,10.0) var groundAcceleration := 4.0
 ## the amount of acceleration when in the air. less feels more floaty more is more snappy.[br]Default is 0.5
-@export_range(0.0,5.0) var air_acceleration := 0.5
+@export_range(0.0,5.0) var airAcceleration := 0.5
 ## Get the gravity from the project settings to be synced with RigidBody nodes.
 @export_range(5.0,25.0) var gravity : float = 15.0
 
@@ -18,40 +18,45 @@ extends CharacterBody3D
 @export var score : int = 0
 ## Available hability for player. Applies a force to body in looking direction
 @export var dash : int = 0
-## Available hability for player. Prevents damage when true.
-@export var shield : bool = false
 ## The movement speed in m/s. Default is 5.
 @export_range(1.0,30.0) var speed : float = 5.0
 ## The Jump Velocity in m/s- default to 6.0
-@export_range(2.0,10.0) var jump_velocity : float = 6.0
-var takeDmg : bool = false
-var alreadyDmgd : bool = false
+@export_range(2.0,10.0) var jumpVelocity : float = 6.0
+
+@export_category("Procs")
+## Tile where player is standing
 var tile : Area3D
-var game_paused : bool = false
+## Game paused menu controller
+var gamePaused : bool = false
+## Dash controller
+var isDashing : bool = false
+## Available hability for player. Prevents damage when true.
+@export var shield : bool = false
 
 # Const
 const MAXHEALTH : int = 10
 const MAXDASH : int = 2
 const MAXSHIELD : int = 1
-const DASHMAGNITUDE : float = 10.0
-const DASHDURATION : float = 2.0
+const DASHSPEED : float = 18.5
+const DASHDURATION : float = 0.025
 
-var dash_elapsed_time : float = 0.0
-var mouse_motion : Vector2 = Vector2.ZERO
-var pitch = 0
+var mouseMotion : Vector2 = Vector2.ZERO
+var pitch : int = 0
 
-# the camera pivot for head pitch movement
-@onready var camera_pivot : Node3D = $CameraPivot
+@onready var cameraPivot : Node3D = $CameraPivot
 @onready var healthBar : ProgressBar = $CameraPivot/Sprite3D/SubViewport/MarginContainer/VBoxContainer/HP
 @onready var dashText : Label = $CameraPivot/Sprite3D/SubViewport/MarginContainer/VBoxContainer/DASH
 @onready var scoreText : Label = $CameraPivot/Sprite3D/SubViewport/MarginContainer/VBoxContainer/SCORE
-@onready var pause_menu = $CameraPivot/PauseMenu
+@onready var pauseMenu : Control = $CameraPivot/PauseMenu
+@onready var dashTimer : Timer = $DashTimer
 
 
 func _ready() -> void:
 	healthBar.max_value = MAXHEALTH
 	healthBar.value = MAXHEALTH
 	health = MAXHEALTH
+	cameraPivot.rotation.x = -45
+	dashTimer.wait_time = DASHDURATION
 
 func _physics_process(delta : float):
 	# Add the gravity.
@@ -60,7 +65,7 @@ func _physics_process(delta : float):
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
+		velocity.y = jumpVelocity
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -70,34 +75,40 @@ func _physics_process(delta : float):
 	if direction:
 		target_velocity = direction
 	#now apply velocity with lerp based on whether on ground or in air
-	if is_on_floor():
-		velocity.x = move_toward(velocity.x , target_velocity.x * speed , speed * ground_acceleration * delta)
-		velocity.z = move_toward(velocity.z, target_velocity.z * speed, speed * ground_acceleration * delta)
+	if isDashing:
+		velocity = transform.basis.z * -DASHSPEED
+	elif is_on_floor():
+		velocity.x = move_toward(velocity.x , target_velocity.x * speed , speed * groundAcceleration * delta)
+		velocity.z = move_toward(velocity.z, target_velocity.z * speed, speed * groundAcceleration * delta)
 	else:
-		velocity.x = move_toward(velocity.x , target_velocity.x * speed , speed * air_acceleration * delta)
-		velocity.z = move_toward(velocity.z, target_velocity.z * speed, speed * air_acceleration * delta)
+		velocity.x = move_toward(velocity.x , target_velocity.x * speed , speed * airAcceleration * delta)
+		velocity.z = move_toward(velocity.z, target_velocity.z * speed, speed * airAcceleration * delta)
 	#now actually move based on velocity
 	move_and_slide()
 	
 	#rotate the player and camera pivot based on mouse movement
-	rotate_y(-mouse_motion.x * mouse_sensitivity / 1000)
-	pitch -= mouse_motion.y * mouse_sensitivity / 1000
+	rotate_y(-mouseMotion.x * mouseSensitivity / 1000)
+	pitch -= mouseMotion.y * mouseSensitivity / 1000
 	pitch = clampf(pitch,-1.35,1.35)
-	camera_pivot.rotation.x = pitch
+	# cameraPivot.rotation.x = pitch
 	#reset it
-	mouse_motion = Vector2.ZERO
+	mouseMotion = Vector2.ZERO
 
 #handle and store mouse motion
 func _input(event: InputEvent):
 	if event is InputEventMouseMotion:
-		mouse_motion = event.relative
+		mouseMotion = event.relative
 	if event.is_action_pressed("scape"):
 		_pause_menu()
 	if event.is_action_pressed("sprint"):
-		if dash > 0:
-			dash -= 1
-			print("Dash used!")
-			_ui_update("dash")
+		_start_dash()
+
+func _start_dash() -> void:
+	if dash > 0:
+		dash -= 1
+		isDashing = true
+		dashTimer.start()
+		_ui_update("dash")
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	tile = area
@@ -146,14 +157,14 @@ func _on_timer_ready() -> void:
 	pass # Replace with function body.
 
 func _pause_menu() -> void:
-	if game_paused:
-		pause_menu.hide()
+	if gamePaused:
+		pauseMenu.hide()
 		Engine.time_scale = 1
 	else:
-		pause_menu.show()
+		pauseMenu.show()
 		Engine.time_scale = 0
-	game_paused = !game_paused
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if game_paused else Input.MOUSE_MODE_CAPTURED
+	gamePaused = !gamePaused
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if gamePaused else Input.MOUSE_MODE_CAPTURED
 	
 func _ui_update(type : String) -> void:
 	match type:
@@ -161,3 +172,9 @@ func _ui_update(type : String) -> void:
 			dashText.text = "Dash: " + str(dash)
 		"hp":
 			healthBar.value = health
+
+func _end_dash() -> void:
+	isDashing = false
+
+func _on_dash_timer_timeout() -> void:
+	_end_dash()
