@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://cgt6eywdxumfc"]
 
 [ext_resource type="Script" path="res://Scripts/tile.gd" id="1_20usj"]
-[ext_resource type="Shader" path="res://Scenes/Assets/tile_01.gdshader" id="2_2ksqk"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/tile_01.gdshader" id="2_2ksqk"]
 [ext_resource type="Texture2D" uid="uid://buqx0c5iev5vp" path="res://Blender/tile_tile.png" id="2_777ur"]
 
 [sub_resource type="Gradient" id="Gradient_wxkbf"]

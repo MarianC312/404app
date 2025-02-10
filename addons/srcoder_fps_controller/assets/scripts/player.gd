@@ -46,6 +46,7 @@ var pitch = 0
 @onready var dashText : Label = $CameraPivot/Sprite3D/SubViewport/MarginContainer/VBoxContainer/DASH
 @onready var scoreText : Label = $CameraPivot/Sprite3D/SubViewport/MarginContainer/VBoxContainer/SCORE
 @onready var pause_menu = $CameraPivot/PauseMenu
+@onready var shield0 : Area3D = $Shield0
 
 
 func _ready() -> void:
@@ -117,6 +118,7 @@ func _on_timer_timeout() -> void:
 
 func _shield_up() -> void:
 	if !shield:
+		shield0.show()
 		shield = true
 
 func _dash_up() -> void:
@@ -135,6 +137,7 @@ func _take_damage() -> void:
 			_ui_update("hp")
 		else:
 			shield = false
+			shield0.hide()
 			print("No dmg taken, shield spent!")
 	else:
 		free()

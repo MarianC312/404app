@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dy26xc485fhld"]
+[gd_scene load_steps=9 format=3 uid="uid://dy26xc485fhld"]
 
 [ext_resource type="Script" path="res://addons/srcoder_fps_controller/assets/scripts/player.gd" id="1_f6swd"]
 [ext_resource type="PackedScene" uid="uid://4myu81xye43l" path="res://Scenes/Menues/Pause/PauseMenu.tscn" id="2_a2ogr"]
 [ext_resource type="Material" uid="uid://xksju4002ur7" path="res://addons/srcoder_fps_controller/assets/materials/white.material" id="2_fs15m"]
+[ext_resource type="PackedScene" uid="uid://cbgpsje74goco" path="res://Scenes/Assets/Shield.tscn" id="4_ntgvh"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ntw7j"]
 
@@ -74,5 +75,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+
+[node name="Shield0" parent="." instance=ExtResource("4_ntgvh")]
+visible = false
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

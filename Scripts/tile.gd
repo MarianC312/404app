@@ -41,7 +41,6 @@ func _ready() -> void:
 	material.set_shader_parameter("hue_shift", randf_range(-1.0, 1.0))
 
 func _change_tile_material(change: bool) -> void:
-	print(change)
 	if change == true:
 		_tile_power_shuffle()
 		var tileTypeBack = tileType
