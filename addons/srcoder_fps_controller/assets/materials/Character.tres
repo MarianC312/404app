@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://brsfpmq20pu1h"]
+
+[ext_resource type="Texture2D" uid="uid://ddn5c08yd8v65" path="res://Blender/Ch45_nonPBR_0.png" id="1_imij0"]
+[ext_resource type="Texture2D" uid="uid://cqm2d8y6461gh" path="res://Blender/Ch45_nonPBR_2.png" id="2_eri6c"]
+
+[resource]
+albedo_texture = ExtResource("1_imij0")
+roughness_texture = ExtResource("2_eri6c")
+normal_enabled = true
+normal_texture = ExtResource("2_eri6c")
