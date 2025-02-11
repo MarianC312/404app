@@ -82,7 +82,7 @@ func _physics_process(delta : float):
 	if isDashing:
 		velocity = transform.basis.z * -DASHSPEED
 	elif is_on_floor():
-		animator.current_animation = "Armature|Walk"
+		animator.current_animation = "Armature|Walk_001"
 		animator.play()
 		velocity.x = move_toward(velocity.x , target_velocity.x * speed , speed * groundAcceleration * delta)
 		velocity.z = move_toward(velocity.z, target_velocity.z * speed, speed * groundAcceleration * delta)
