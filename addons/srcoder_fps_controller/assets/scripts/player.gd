@@ -80,16 +80,22 @@ func _physics_process(delta : float):
 		target_velocity = direction
 	#now apply velocity with lerp based on whether on ground or in air
 	if isDashing:
+		animator.current_animation = "Armature|Roll"
 		velocity = transform.basis.z * -DASHSPEED
 	elif is_on_floor():
-		animator.current_animation = "Armature|Walk_001"
-		animator.play()
+		if input_dir.is_zero_approx():
+			animator.current_animation = "Armature|Idle"
+		else:
+			if isDashing == false:
+				animator.current_animation = "Armature|Walk"
 		velocity.x = move_toward(velocity.x , target_velocity.x * speed , speed * groundAcceleration * delta)
 		velocity.z = move_toward(velocity.z, target_velocity.z * speed, speed * groundAcceleration * delta)
 	else:
 		velocity.x = move_toward(velocity.x , target_velocity.x * speed , speed * airAcceleration * delta)
 		velocity.z = move_toward(velocity.z, target_velocity.z * speed, speed * airAcceleration * delta)
 	#now actually move based on velocity
+	if animator.is_playing() == false:
+		animator.play()
 	move_and_slide()
 	
 	#rotate the player and camera pivot based on mouse movement
