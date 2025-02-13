@@ -37,8 +37,8 @@ var isDashing : bool = false
 const MAXHEALTH : int = 10
 const MAXDASH : int = 2
 const MAXSHIELD : int = 1
-const DASHSPEED : float = 18.5
-const DASHDURATION : float = 0.025
+const DASHSPEED : float = 9.5
+const DASHDURATION : float = 2.0
 
 var mouseMotion : Vector2 = Vector2.ZERO
 var pitch : int = 0
@@ -83,10 +83,10 @@ func _physics_process(delta : float):
 		animator.current_animation = "Armature|Roll"
 		velocity = transform.basis.z * -DASHSPEED
 	elif is_on_floor():
-		if input_dir.is_zero_approx():
+		if input_dir.is_zero_approx() and not isDashing:
 			animator.current_animation = "Armature|Idle"
 		else:
-			if isDashing == false:
+			if not isDashing:
 				animator.current_animation = "Armature|Walk"
 		velocity.x = move_toward(velocity.x , target_velocity.x * speed , speed * groundAcceleration * delta)
 		velocity.z = move_toward(velocity.z, target_velocity.z * speed, speed * groundAcceleration * delta)
