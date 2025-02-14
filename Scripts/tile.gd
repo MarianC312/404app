@@ -5,22 +5,26 @@ var tilePower = {
 	"green": {
 		"material": preload("res://Materials/TileMaterials/green.tres"),
 		"power": "health",
-		"shift_hue": 0.5
+		"shift_hue": 0.5,
+		"score": 2.0
 	},
 	"gold": {
 		"material": preload("res://Materials/TileMaterials/gold.tres"),
 		"power": "dash",
-		"shift_hue": 0.325
+		"shift_hue": 0.325,
+		"score": 5.0
 	},
 	"purple": {
 		"material": preload("res://Materials/TileMaterials/purple.tres"),
 		"power": "shield",
-		"shift_hue": 1.0
+		"shift_hue": 1.0,
+		"score": 5.0
 	},
 	"red": {
 		"material": preload("res://Materials/TileMaterials/red.tres"),
 		"power": "damage",
-		"shift_hue": 0.185
+		"shift_hue": 0.185,
+		"score": 1.0
 	}
 }
 var tilePowerList : Array
@@ -63,6 +67,9 @@ func _tile_power_shuffle() -> void:
 
 func _get_type() -> String:
 	return tileType
+
+func _get_score() -> float:
+	return tilePower[tileType]["score"]
 
 func _print_data() -> void:
 	print(name + ": " + tileType) #  + ((tileType != "red") if "(OK)" else "")

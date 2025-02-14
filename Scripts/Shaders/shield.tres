@@ -20,11 +20,11 @@ default_input_values = [0, Quaternion(0, 0, 0, 0)]
 op_type = 2
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_fcrjx"]
-default_input_values = [0, 0.0, 1, 2.0]
+default_input_values = [0, 0.0, 1, 4.0]
 operator = 2
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_uia37"]
-constant = 0.725
+constant = 0.319
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_kqu3y"]
 noise_type = 2
@@ -133,22 +133,24 @@ void fragment() {
 
 
 // FloatOp:14
-	float n_in14p1 = 2.00000;
+	float n_in14p1 = 4.00000;
 	float n_out14p0 = n_out13p0 * n_in14p1;
 
 
 // FloatConstant:15
-	float n_out15p0 = 0.725000;
+	float n_out15p0 = 0.319000;
 
 
 // Output:0
 	ALBEDO = vec3(n_out12p0.xyz);
 	ALPHA = n_out14p0;
+	EMISSION = vec3(n_out15p0);
 	RIM = n_out15p0;
 
 
 }
 "
+graph_offset = Vector2(745.257, 583.339)
 nodes/fragment/0/position = Vector2(1680, 580)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_k410p")
 nodes/fragment/2/position = Vector2(16.195, 302.675)
@@ -178,4 +180,4 @@ nodes/fragment/14/node = SubResource("VisualShaderNodeFloatOp_fcrjx")
 nodes/fragment/14/position = Vector2(1140, 880)
 nodes/fragment/15/node = SubResource("VisualShaderNodeFloatConstant_uia37")
 nodes/fragment/15/position = Vector2(1340, 1060)
-nodes/fragment/connections = PackedInt32Array(3, 0, 2, 0, 4, 0, 6, 0, 5, 0, 6, 1, 6, 0, 3, 2, 8, 0, 7, 0, 6, 0, 8, 2, 2, 0, 9, 0, 7, 0, 9, 1, 9, 0, 10, 0, 10, 0, 12, 0, 12, 0, 0, 0, 10, 0, 13, 0, 11, 0, 12, 1, 13, 0, 14, 0, 14, 0, 0, 1, 15, 0, 0, 11)
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 0, 4, 0, 6, 0, 5, 0, 6, 1, 6, 0, 3, 2, 8, 0, 7, 0, 6, 0, 8, 2, 2, 0, 9, 0, 7, 0, 9, 1, 9, 0, 10, 0, 10, 0, 12, 0, 12, 0, 0, 0, 10, 0, 13, 0, 11, 0, 12, 1, 13, 0, 14, 0, 14, 0, 0, 1, 15, 0, 0, 11, 15, 0, 0, 5)

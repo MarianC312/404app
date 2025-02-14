@@ -37,8 +37,8 @@ var isDashing : bool = false
 const MAXHEALTH : int = 10
 const MAXDASH : int = 2
 const MAXSHIELD : int = 1
-const DASHSPEED : float = 9.5
-const DASHDURATION : float = 2.0
+const DASHSPEED : float = 14.75
+const DASHDURATION : float = 1.0
 
 var mouseMotion : Vector2 = Vector2.ZERO
 var pitch : int = 0
@@ -54,6 +54,8 @@ var pitch : int = 0
 
 
 func _ready() -> void:
+	_ui_update("score")
+	_ui_update("dash")
 	healthBar.max_value = MAXHEALTH
 	healthBar.value = MAXHEALTH
 	health = MAXHEALTH
@@ -81,7 +83,8 @@ func _physics_process(delta : float):
 	#now apply velocity with lerp based on whether on ground or in air
 	if isDashing:
 		animator.current_animation = "Armature|Roll"
-		velocity = transform.basis.z * -DASHSPEED
+		velocity.x = move_toward(velocity.x , target_velocity.x * DASHSPEED , DASHSPEED * groundAcceleration * delta)
+		velocity.z = move_toward(velocity.z, target_velocity.z * DASHSPEED, DASHSPEED * groundAcceleration * delta)
 	elif is_on_floor():
 		if input_dir.is_zero_approx() and not isDashing:
 			animator.current_animation = "Armature|Idle"
@@ -124,7 +127,12 @@ func _start_dash() -> void:
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	tile = area
+	_add_score(tile._get_score())
 	area._print_data()
+
+func _add_score(nScore : float) -> void:
+	score += nScore
+	_ui_update("score")
 
 func _on_timer_timeout() -> void:
 	if tile != null:
@@ -137,6 +145,8 @@ func _on_timer_timeout() -> void:
 				_dash_up()
 			"purple":
 				_shield_up()
+	else:
+		_take_damage()
 
 func _shield_up() -> void:
 	if !shield:
@@ -186,6 +196,8 @@ func _ui_update(type : String) -> void:
 			dashText.text = "Dash: " + str(dash)
 		"hp":
 			healthBar.value = health
+		"score":
+			scoreText.text = "Score: " + str(score)
 
 func _end_dash() -> void:
 	isDashing = false

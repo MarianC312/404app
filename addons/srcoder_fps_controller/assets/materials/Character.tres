@@ -5,6 +5,17 @@
 
 [resource]
 albedo_texture = ExtResource("1_imij0")
+metallic_specular = 0.0
+roughness = 0.0
 roughness_texture = ExtResource("2_eri6c")
+roughness_texture_channel = 2
+emission_enabled = true
+emission_energy_multiplier = 2.68
 normal_enabled = true
+normal_scale = -3.0
 normal_texture = ExtResource("2_eri6c")
+rim_enabled = true
+rim = 0.0
+rim_tint = 1.0
+heightmap_enabled = true
+heightmap_scale = 1.0
