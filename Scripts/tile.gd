@@ -72,4 +72,5 @@ func _get_score() -> float:
 	return tilePower[tileType]["score"]
 
 func _print_data() -> void:
-	print(name + ": " + tileType) #  + ((tileType != "red") if "(OK)" else "")
+	# print(name + ": " + tileType) #  + ((tileType != "red") if "(OK)" else "")
+	pass
