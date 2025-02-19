@@ -90,7 +90,7 @@ func _physics_process(delta : float):
 			animator.current_animation = "Armature|Idle"
 		else:
 			if not isDashing:
-				animator.current_animation = "Armature|Walk"
+				animator.current_animation = "Armature|Run"
 		velocity.x = move_toward(velocity.x , target_velocity.x * speed , speed * groundAcceleration * delta)
 		velocity.z = move_toward(velocity.z, target_velocity.z * speed, speed * groundAcceleration * delta)
 	else:
