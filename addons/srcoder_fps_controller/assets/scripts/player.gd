@@ -44,15 +44,18 @@ const DASHDURATION : float = 1.255
 const LERPSPEED : float = 2.75
 
 # Enums
-enum {IDLE, RUN, ROLL, RUNB}
+enum {IDLE, RUN, ROLL, RUNB, CROUCH, CROUCHB}
 
 var currAnim = IDLE
 var mouseMotion : Vector2 = Vector2.ZERO
 var pitch : int = 0
-var anim_run : float = 0
-var anim_roll : float = 0
-var anim_run_b : float = 0
+var anim_run : float = 0.0
+var anim_roll : float = 0.0
+var anim_run_b : float = 0.0
+var anim_crouch : float = 0.0
+var anim_crouch_b : float = 0.0
 var isBackward : bool = false
+var isCrouch : bool = false
 var currSpeed : float = 0.0 
 
 @onready var cameraPivot : Node3D = $CameraPivot
@@ -107,9 +110,10 @@ func _physics_process(delta : float):
 		else:
 			if not isDashing:
 				if isBackward:
-					currAnim = RUNB
+					currAnim = (isCrouch) if CROUCHB else RUNB
 				else:
-					currAnim = RUN
+					currAnim = (isCrouch) if CROUCH else RUN
+				
 		velocity.x = move_toward(velocity.x , target_velocity.x * speed , lerpf(0.0, currSpeed * groundAcceleration, LERPSPEED * delta))
 		velocity.z = move_toward(velocity.z, target_velocity.z * speed, lerpf(0.0, currSpeed * groundAcceleration, LERPSPEED * delta))
 	else:
@@ -135,10 +139,8 @@ func _input(event: InputEvent):
 		_pause_menu()
 	if event.is_action_pressed("sprint"):
 		_start_dash()
-	if event.is_action_pressed("move_backward"):
-		isBackward = true
-	else:
-		isBackward = false
+	isBackward = (event.is_action_pressed("move_backward")) if true else false
+	isCrouch = (event.is_action_pressed("crouch")) if true else false
 
 func _start_dash() -> void:
 	if dash > 0 and isDashing == false:
@@ -227,19 +229,38 @@ func handle_animation(delta) -> void:
 			anim_run = lerpf(anim_run, 0, blendSpeed * delta)
 			anim_roll = lerpf(anim_roll, 0, blendSpeed * delta)
 			anim_run_b = lerpf(anim_run_b, 0, blendSpeed * delta)
+			anim_crouch = lerpf(anim_crouch, 0, blendSpeed * delta)
+			anim_crouch_b = lerpf(anim_crouch_b, 0, blendSpeed * delta)
 		RUN:
 			anim_run = lerpf(anim_run, 1, blendSpeed * delta)
 			anim_roll = lerpf(anim_roll, 0, blendSpeed * delta)
 			anim_run_b = lerpf(anim_run_b, 0, blendSpeed * delta)
+			anim_crouch = lerpf(anim_crouch, 0, blendSpeed * delta)
+			anim_crouch_b = lerpf(anim_crouch_b, 0, blendSpeed * delta)
 		RUNB:
 			anim_run = lerpf(anim_run, 0, blendSpeed * delta)
 			anim_roll = lerpf(anim_roll, 0, blendSpeed * delta)
 			anim_run_b = lerpf(anim_run_b, 1, blendSpeed * delta)
-			print("is run backward!")
+			anim_crouch = lerpf(anim_crouch, 0, blendSpeed * delta)
+			anim_crouch_b = lerpf(anim_crouch_b, 0, blendSpeed * delta)
 		ROLL:
 			anim_run = lerpf(anim_run, 0, blendSpeed * delta)
 			anim_roll = lerpf(anim_roll, 1, blendSpeed * delta)
 			anim_run_b = lerpf(anim_run_b, 0, blendSpeed * delta)
+			anim_crouch = lerpf(anim_crouch, 0, blendSpeed * delta)
+			anim_crouch_b = lerpf(anim_crouch_b, 0, blendSpeed * delta)
+		CROUCH:
+			anim_run = lerpf(anim_run, 0, blendSpeed * delta)
+			anim_roll = lerpf(anim_roll, 0, blendSpeed * delta)
+			anim_run_b = lerpf(anim_run_b, 0, blendSpeed * delta)
+			anim_crouch = lerpf(anim_crouch, 1, blendSpeed * delta)
+			anim_crouch_b = lerpf(anim_crouch_b, 0, blendSpeed * delta)
+		CROUCHB:
+			anim_run = lerpf(anim_run, 0, blendSpeed * delta)
+			anim_roll = lerpf(anim_roll, 0, blendSpeed * delta)
+			anim_run_b = lerpf(anim_run_b, 0, blendSpeed * delta)
+			anim_crouch = lerpf(anim_crouch, 0, blendSpeed * delta)
+			anim_crouch_b = lerpf(anim_crouch_b, 1, blendSpeed * delta)
 		_:
 			print("Animación inexistente")
 	update_tree()
@@ -250,6 +271,8 @@ func update_tree() -> void:
 	animTree.set("parameters/Run/blend_amount", anim_run)
 	animTree.set("parameters/Roll/blend_amount", anim_roll)
 	animTree.set("parameters/RunB/blend_amount", anim_run_b)
+	animTree.set("parameters/Crouch/blend_amount", anim_crouch)
+	animTree.set("parameters/CrouchB/blend_amount", anim_crouch_b)
 
 func _end_dash() -> void:
 	isDashing = false
