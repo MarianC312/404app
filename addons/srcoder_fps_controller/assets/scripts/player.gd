@@ -21,7 +21,7 @@ extends CharacterBody3D
 @export var blendSpeed : int = 10
 ## The movement speed in m/s. Default is 5.
 @export_range(1.0,30.0) var speed : float = 7.5
-@export_range(1.0,15.0) var backwardSpeed : float = 2.5
+@export_range(1.0,15.0) var crouchSpeed : float = 3.25
 ## The Jump Velocity in m/s- default to 6.0
 @export_range(2.0,10.0) var jumpVelocity : float = 6.0
 
@@ -42,11 +42,12 @@ const MAXSHIELD : int = 1
 const DASHSPEED : float = 14.75
 const DASHDURATION : float = 1.255
 const LERPSPEED : float = 2.75
+const ROTATIONSPEED : float = 10.0
 
 # Enums
 enum {IDLE, RUN, ROLL, RUNB, CROUCH, CROUCHB}
 
-var currAnim = IDLE
+var currAnim
 var mouseMotion : Vector2 = Vector2.ZERO
 var pitch : int = 0
 var anim_run : float = 0.0
@@ -78,19 +79,23 @@ func _ready() -> void:
 	dashTimer.wait_time = DASHDURATION
 	currAnim = IDLE
 
+func _process(delta: float) -> void:
+	pass
+
 func _physics_process(delta : float):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	else:
-		if isBackward:
-			currSpeed = backwardSpeed
+		if isCrouch:
+			currSpeed = crouchSpeed
 		else:
 			currSpeed = speed
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jumpVelocity
+		#velocity.y = jumpVelocity
+		pass
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -110,19 +115,17 @@ func _physics_process(delta : float):
 		else:
 			if not isDashing:
 				if isBackward:
-					currAnim = (isCrouch) if CROUCHB else RUNB
+					currAnim = CROUCHB if isCrouch else RUNB
 				else:
-					currAnim = (isCrouch) if CROUCH else RUN
-				
-		velocity.x = move_toward(velocity.x , target_velocity.x * speed , lerpf(0.0, currSpeed * groundAcceleration, LERPSPEED * delta))
-		velocity.z = move_toward(velocity.z, target_velocity.z * speed, lerpf(0.0, currSpeed * groundAcceleration, LERPSPEED * delta))
+					currAnim = CROUCH if isCrouch else RUN
+		velocity.x = move_toward(velocity.x , target_velocity.x * currSpeed , lerpf(0.0, currSpeed * groundAcceleration, LERPSPEED * delta))
+		velocity.z = move_toward(velocity.z, target_velocity.z * currSpeed, lerpf(0.0, currSpeed * groundAcceleration, LERPSPEED * delta))
 	else:
-		velocity.x = move_toward(velocity.x , target_velocity.x * speed , lerpf(0.0, currSpeed * groundAcceleration, LERPSPEED / 2 * delta))
-		velocity.z = move_toward(velocity.z, target_velocity.z * speed, lerpf(0.0, currSpeed * groundAcceleration, LERPSPEED / 2 * delta))
+		velocity.x = move_toward(velocity.x , target_velocity.x * currSpeed , lerpf(0.0, currSpeed * groundAcceleration, LERPSPEED / 2 * delta))
+		velocity.z = move_toward(velocity.z, target_velocity.z * currSpeed, lerpf(0.0, currSpeed * groundAcceleration, LERPSPEED / 2 * delta))
 	#now actually move based on velocity
 	move_and_slide()
 	handle_animation(delta)
-	
 	#rotate the player and camera pivot based on mouse movement
 	rotate_y(lerpf(0.0, -mouseMotion.x * mouseSensitivity / 1000, LERPSPEED * 15 * delta))
 	pitch -= mouseMotion.y * mouseSensitivity / 1000
@@ -139,8 +142,8 @@ func _input(event: InputEvent):
 		_pause_menu()
 	if event.is_action_pressed("sprint"):
 		_start_dash()
-	isBackward = (event.is_action_pressed("move_backward")) if true else false
-	isCrouch = (event.is_action_pressed("crouch")) if true else false
+	isBackward = true if (Input.is_action_pressed("move_backward")) else false
+	isCrouch = true if (Input.is_action_pressed("crouch")) else false
 
 func _start_dash() -> void:
 	if dash > 0 and isDashing == false:
@@ -150,9 +153,16 @@ func _start_dash() -> void:
 		_ui_update("dash")
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	tile = area
-	_add_score(tile._get_score())
-	area._print_data()
+	match area.name:
+		"RoomArea":
+			print("AreaRoom")
+		"AreaDoor":
+			var nextLevel : String = area.get_parent()._get_next_level()
+			get_tree().change_scene_to_file(nextLevel)
+		_:
+			tile = area
+			_add_score(tile._get_score())
+			# area._print_data()
 
 func _add_score(nScore : float) -> void:
 	score += nScore
@@ -194,10 +204,9 @@ func _take_damage() -> void:
 		else:
 			shield = false
 			shield0.hide()
-			print("No dmg taken, shield spent!")
 	else:
 		free()
-	tile._print_data()
+	# tile._print_data()
 	# print("player: " + str(health) + " hp")
 
 

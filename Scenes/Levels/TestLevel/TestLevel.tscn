@@ -1,19 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://c535do2e3f2qd"]
+[gd_scene load_steps=11 format=3 uid="uid://c535do2e3f2qd"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/TestLevel/test_level.gd" id="1_6qk84"]
 [ext_resource type="PackedScene" uid="uid://dy26xc485fhld" path="res://addons/srcoder_fps_controller/player.tscn" id="1_nnkuk"]
 [ext_resource type="PackedScene" uid="uid://xvirvni0l0oy" path="res://addons/srcoder_fps_controller/mouse_lock.tscn" id="2_i82do"]
 [ext_resource type="Script" path="res://Scripts/tile_controller.gd" id="3_qbu74"]
+[ext_resource type="Script" path="res://Scripts/LevelDoor.gd" id="4_670s4"]
 [ext_resource type="PackedScene" uid="uid://cgt6eywdxumfc" path="res://Scenes/Assets/tile_01.tscn" id="5_b2qeg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6878d"]
+size = Vector3(2, 3, 1)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eods5"]
 
-[sub_resource type="Sky" id="Sky_pb884"]
+[sub_resource type="Sky" id="Sky_sbqhv"]
 sky_material = SubResource("ProceduralSkyMaterial_eods5")
 
 [sub_resource type="Environment" id="Environment_i1r7f"]
 background_mode = 2
-sky = SubResource("Sky_pb884")
+sky = SubResource("Sky_sbqhv")
 ambient_light_source = 3
 ambient_light_color = Color(0.80057, 0.621181, 0.545011, 1)
 reflected_light_source = 2
@@ -22,7 +26,7 @@ reflected_light_source = 2
 script = ExtResource("1_6qk84")
 
 [node name="Player" parent="." instance=ExtResource("1_nnkuk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75053, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1232, 1.75053, 10.5365)
 
 [node name="MouseLock" parent="Player" instance=ExtResource("2_i82do")]
 
@@ -39,6 +43,17 @@ size = Vector3(30, 5, 30)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.626, -2)
 operation = 2
 size = Vector3(28, 5, 28)
+
+[node name="Door01" type="CSGBox3D" parent="TestRoom/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3893, 1.6323, -16.4467)
+operation = 2
+size = Vector3(2, 3, 1)
+script = ExtResource("4_670s4")
+
+[node name="AreaDoor" type="Area3D" parent="TestRoom/CSGCombiner3D/Door01"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoom/CSGCombiner3D/Door01/AreaDoor"]
+shape = SubResource("BoxShape3D_6878d")
 
 [node name="TileContainer" type="Node3D" parent="TestRoom"]
 script = ExtResource("3_qbu74")
@@ -642,6 +657,7 @@ environment = SubResource("Environment_i1r7f")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6, 0)
 
+[connection signal="area_entered" from="TestRoom/CSGCombiner3D/Door01/AreaDoor" to="TestRoom/CSGCombiner3D/Door01" method="_on_area_3d_area_entered"]
 [connection signal="ready" from="TestRoom/TileContainer/Timer" to="Player" method="_on_timer_ready"]
 [connection signal="timeout" from="TestRoom/TileContainer/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="TestRoom/TileContainer/Timer" to="TestRoom/TileContainer" method="_on_timer_timeout"]
