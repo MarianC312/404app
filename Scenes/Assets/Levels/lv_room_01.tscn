@@ -33,7 +33,6 @@ size = Vector3(22, 3.5, 22)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 2, 5.5)
 operation = 2
 size = Vector3(10, 3, 10)
-script = ExtResource("1_0ds0g")
 
 [node name="Room02" type="CSGBox3D" parent="Room/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2, 5.5)
@@ -54,7 +53,7 @@ operation = 2
 size = Vector3(21, 3, 10)
 
 [node name="Door01" type="CSGBox3D" parent="Room/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.26862, 2, -0.0038929)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.269, 2, 0)
 operation = 2
 size = Vector3(2, 3, 1.1)
 

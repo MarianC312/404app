@@ -74,3 +74,6 @@ func _get_score() -> float:
 func _print_data() -> void:
 	# print(name + ": " + tileType) #  + ((tileType != "red") if "(OK)" else "")
 	pass
+
+func get_mesh_size() -> Vector3:
+	return cube.mesh.get_aabb().size
