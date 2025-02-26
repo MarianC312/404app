@@ -76,4 +76,6 @@ func _print_data() -> void:
 	pass
 
 func get_mesh_size() -> Vector3:
-	return cube.mesh.get_aabb().size
+	#if cube.mesh:
+		#return cube.mesh.get_aabb().size
+	return Vector3()
