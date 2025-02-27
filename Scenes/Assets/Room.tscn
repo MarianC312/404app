@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckqcnw6km4xra"]
+
+[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_5dne0"]
+[ext_resource type="Script" path="res://Scripts/tile_controller.gd" id="2_iwdli"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rwel8"]
+size = Vector3(10, 3, 10)
+
+[node name="Room01" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 5.5)
+operation = 2
+size = Vector3(10, 3, 10)
+script = ExtResource("1_5dne0")
+
+[node name="RoomArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea"]
+shape = SubResource("BoxShape3D_rwel8")
+
+[node name="TileContainer" type="Node3D" parent="RoomArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -1.5, -4)
+script = ExtResource("2_iwdli")
+
+[node name="Timer" type="Timer" parent="RoomArea/TileContainer"]
+
+[connection signal="area_entered" from="RoomArea/TileContainer/Tile01" to="RoomArea/TileContainer/Tile01" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71149" to="RoomArea/TileContainer/@Area3D@71149" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71150" to="RoomArea/TileContainer/@Area3D@71150" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71151" to="RoomArea/TileContainer/@Area3D@71151" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71152" to="RoomArea/TileContainer/@Area3D@71152" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71153" to="RoomArea/TileContainer/@Area3D@71153" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71154" to="RoomArea/TileContainer/@Area3D@71154" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71155" to="RoomArea/TileContainer/@Area3D@71155" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71156" to="RoomArea/TileContainer/@Area3D@71156" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71157" to="RoomArea/TileContainer/@Area3D@71157" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71158" to="RoomArea/TileContainer/@Area3D@71158" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71159" to="RoomArea/TileContainer/@Area3D@71159" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71160" to="RoomArea/TileContainer/@Area3D@71160" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71161" to="RoomArea/TileContainer/@Area3D@71161" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71162" to="RoomArea/TileContainer/@Area3D@71162" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71163" to="RoomArea/TileContainer/@Area3D@71163" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71164" to="RoomArea/TileContainer/@Area3D@71164" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71165" to="RoomArea/TileContainer/@Area3D@71165" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71166" to="RoomArea/TileContainer/@Area3D@71166" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71167" to="RoomArea/TileContainer/@Area3D@71167" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71168" to="RoomArea/TileContainer/@Area3D@71168" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71169" to="RoomArea/TileContainer/@Area3D@71169" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71170" to="RoomArea/TileContainer/@Area3D@71170" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71171" to="RoomArea/TileContainer/@Area3D@71171" method="_on_area_entered"]
+[connection signal="area_entered" from="RoomArea/TileContainer/@Area3D@71172" to="RoomArea/TileContainer/@Area3D@71172" method="_on_area_entered"]

@@ -1,0 +1,130 @@
+[gd_scene load_steps=9 format=3 uid="uid://dj62kk3vo0rsr"]
+
+[ext_resource type="Script" path="res://Scripts/Room.gd" id="1_0ds0g"]
+[ext_resource type="Script" path="res://Scenes/Levels/TestLevel/test_level.gd" id="1_4k6y4"]
+[ext_resource type="PackedScene" uid="uid://dy26xc485fhld" path="res://addons/srcoder_fps_controller/player.tscn" id="1_a5250"]
+[ext_resource type="Script" path="res://Scripts/tile_controller.gd" id="1_qlwc7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rwel8"]
+size = Vector3(10, 3, 10)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_id1nk"]
+
+[sub_resource type="Sky" id="Sky_pb884"]
+sky_material = SubResource("ProceduralSkyMaterial_id1nk")
+
+[sub_resource type="Environment" id="Environment_2h03p"]
+background_mode = 2
+sky = SubResource("Sky_pb884")
+ambient_light_source = 3
+ambient_light_color = Color(0.80057, 0.621181, 0.545011, 1)
+reflected_light_source = 2
+
+[node name="LvRoom01" type="Node3D"]
+script = ExtResource("1_4k6y4")
+
+[node name="Room" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Room"]
+use_collision = true
+
+[node name="Ground" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+size = Vector3(22, 3.5, 22)
+
+[node name="Room01" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 2, 5.5)
+operation = 2
+size = Vector3(10, 3, 10)
+
+[node name="RoomArea" type="Area3D" parent="Room/CSGCombiner3D/Room01"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/CSGCombiner3D/Room01/RoomArea"]
+shape = SubResource("BoxShape3D_rwel8")
+
+[node name="TileContainer" type="Node3D" parent="Room/CSGCombiner3D/Room01/RoomArea"]
+script = ExtResource("1_qlwc7")
+
+[node name="Timer" type="Timer" parent="Room/CSGCombiner3D/Room01/RoomArea/TileContainer"]
+
+[node name="Room02" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2, 5.5)
+operation = 2
+size = Vector3(10, 3, 10)
+script = ExtResource("1_0ds0g")
+
+[node name="RoomArea" type="Area3D" parent="Room/CSGCombiner3D/Room02"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/CSGCombiner3D/Room02/RoomArea"]
+shape = SubResource("BoxShape3D_rwel8")
+
+[node name="TileContainer" type="Node3D" parent="Room/CSGCombiner3D/Room02/RoomArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -1.5, -4)
+script = ExtResource("1_qlwc7")
+
+[node name="Timer" type="Timer" parent="Room/CSGCombiner3D/Room02/RoomArea/TileContainer"]
+
+[node name="Room03" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5.5)
+operation = 2
+size = Vector3(21, 3, 10)
+
+[node name="RoomArea" type="Area3D" parent="Room/CSGCombiner3D/Room03"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/CSGCombiner3D/Room03/RoomArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, 0, 0)
+shape = SubResource("BoxShape3D_rwel8")
+
+[node name="TileContainer" type="Node3D" parent="Room/CSGCombiner3D/Room03/RoomArea"]
+
+[node name="Timer" type="Timer" parent="Room/CSGCombiner3D/Room03/RoomArea/TileContainer"]
+
+[node name="Door01" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.269, 2, 0)
+operation = 2
+size = Vector3(2, 3, 1.1)
+
+[node name="Door02" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.36488, 2, -0.0038929)
+operation = 2
+size = Vector3(2, 3, 1.1)
+
+[node name="Door03" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.899, 2, 9.5)
+operation = 2
+size = Vector3(2, 3, 1.1)
+
+[node name="Player" parent="." instance=ExtResource("1_a5250")]
+transform = Transform3D(-0.00918034, 0, -0.999958, 0, 1, 0, 0.999958, 0, -0.00918034, -8.39534, 1.10191, 9.36322)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2h03p")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6, 0)
+
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/Tile01" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/Tile01" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32261" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32261" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32262" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32262" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32263" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32263" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32264" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32264" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32265" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32265" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32266" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32266" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32267" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32267" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32268" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32268" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32269" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32269" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32270" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32270" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32271" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32271" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32272" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32272" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32273" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32273" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32274" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32274" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32275" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32275" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32276" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32276" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32277" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32277" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32278" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32278" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32279" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32279" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32280" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32280" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32281" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32281" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32282" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32282" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32283" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32283" method="_on_area_entered"]
+[connection signal="area_entered" from="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32284" to="Room/CSGCombiner3D/Room02/RoomArea/TileContainer/@Area3D@32284" method="_on_area_entered"]

@@ -67,6 +67,7 @@ var currSpeed : float = 0.0
 @onready var shield0 : Area3D = $Shield0
 @onready var dashTimer : Timer = $DashTimer
 @onready var animTree : AnimationTree = $Body/Character/AnimationTree
+@export var currentRoom : CSGBox3D
 
 
 func _ready() -> void:
@@ -152,18 +153,6 @@ func _start_dash() -> void:
 		dashTimer.start()
 		_ui_update("dash")
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	match area.name:
-		"RoomArea":
-			print("AreaRoom")
-		"AreaDoor":
-			var nextLevel : String = area.get_parent()._get_next_level()
-			get_tree().change_scene_to_file(nextLevel)
-		_:
-			tile = area
-			_add_score(tile._get_score())
-			# area._print_data()
-
 func _add_score(nScore : float) -> void:
 	score += nScore
 	_ui_update("score")
@@ -208,7 +197,6 @@ func _take_damage() -> void:
 		free()
 	# tile._print_data()
 	# print("player: " + str(health) + " hp")
-
 
 func _on_timer_ready() -> void:
 	pass # Replace with function body.
@@ -288,3 +276,28 @@ func _end_dash() -> void:
 
 func _on_dash_timer_timeout() -> void:
 	_end_dash()
+
+func _get_current_room() -> CSGBox3D:
+	return currentRoom
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	if area.name == "RoomArea":
+		var leavedRoom = area.get_parent()
+		if leavedRoom.has_method("get_room_state") and leavedRoom.get_room_state() == true:
+			leavedRoom.change_room_state()
+			print("Player leaved " + leavedRoom.name + ", state is " + str(leavedRoom.get_room_state()))
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	match area.name:
+		"RoomArea":
+			currentRoom = area.get_parent()
+			if currentRoom.has_method("get_room_state") and currentRoom.get_room_state() == false:
+				currentRoom.change_room_state()
+				print("Player entered " + currentRoom.name + ", state is " + str(currentRoom.get_room_state()))
+		"AreaDoor":
+			var nextLevel : String = area.get_parent()._get_next_level()
+			get_tree().change_scene_to_file(nextLevel)
+		_:
+			tile = area
+			# _add_score(tile._get_score())
+			# area._print_data()
