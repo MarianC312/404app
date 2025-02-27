@@ -28,7 +28,7 @@ script = ExtResource("1_6qk84")
 [node name="Player" parent="." instance=ExtResource("1_nnkuk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1232, 1.75053, 10.5365)
 
-[node name="MouseLock" parent="Player" instance=ExtResource("2_i82do")]
+[node name="MouseLock2" parent="Player" instance=ExtResource("2_i82do")]
 
 [node name="TestRoom" type="Node3D" parent="."]
 
