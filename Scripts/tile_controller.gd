@@ -11,15 +11,17 @@ const MAXTILESAFETOTAL : int = MAXTILESAFE + MAXTILEPWUP
 var tileSafeCounter : int = 0
 
 func _ready() -> void:
-	 = roomArea.width - 2
+	var width = (currentRoom.size.x - 2) / 2 # replace 2 with tile size
+	var height = currentRoom.size.y
+	var depth = (currentRoom.size.z - 2) / 2
+	collShape.shape.size = Vector3(width, height, depth)
 	timer = get_child(0)
 	timer.wait_time = 3
 	_swap_tile_color()
 	timer.connect("timeout", _on_timer_timeout)
 
 func _process(delta: float) -> void:
-	print(currentRoom.name + " is " + str(currentRoom.get_room_state()))
-	print(currentRoom.name + " is " + str(currentRoom.get_room_state()))
+	# print(currentRoom.name + " is " + str(currentRoom.get_room_state()))
 	if currentRoom.get_room_state() == true:
 		if tiles == null:
 			tiles = get_children()
@@ -45,4 +47,6 @@ func _swap_tile_color() -> void:
 			tile._change_tile_material(safe)
 			if safe:
 				tileSafeCounter += 1
-			
+
+func update_position(newPosition : Vector3) -> void:
+	position -= newPosition

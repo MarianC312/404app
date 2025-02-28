@@ -25,8 +25,8 @@ script = ExtResource("1_4k6y4")
 use_collision = true
 
 [node name="Ground" type="CSGBox3D" parent="Room/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
-size = Vector3(24, 3.5, 22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.75, 0)
+size = Vector3(42, 3.5, 22)
 
 [node name="Room01" parent="Room/CSGCombiner3D" instance=ExtResource("2_6ucl2")]
 
@@ -38,18 +38,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5.5)
 size = Vector3(22, 3, 10)
 matrix = Vector2(11, 5)
 
+[node name="Room04" parent="Room/CSGCombiner3D" instance=ExtResource("2_6ucl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2, 0.5)
+size = Vector3(16, 3, 20)
+matrix = Vector2(8, 10)
+
 [node name="Door01" type="CSGBox3D" parent="Room/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.25, 0)
 operation = 2
 size = Vector3(2, 3.5, 1.1)
 
 [node name="Door02" type="CSGBox3D" parent="Room/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.25, 0)
 operation = 2
 size = Vector3(2, 3.5, 1.1)
 
 [node name="Door03" type="CSGBox3D" parent="Room/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.5, 2, 9.5)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.5, 2.25, 9.5)
 operation = 2
 size = Vector3(2, 3.5, 1.1)
 
