@@ -20,10 +20,10 @@ extends CharacterBody3D
 @export var dash : int = 10 # 2
 @export var blendSpeed : int = 10
 ## The movement speed in m/s. Default is 5.
-@export_range(1.0,30.0) var speed : float = 7.5
+@export_range(1.0,30.0) var speed : float = 4.5
 @export_range(1.0,15.0) var crouchSpeed : float = 3.25
 ## The Jump Velocity in m/s- default to 6.0
-@export_range(2.0,10.0) var jumpVelocity : float = 6.0
+@export_range(2.0,10.0) var jumpVelocity : float = 7.5
 
 @export_category("Procs")
 ## Tile where player is standing
@@ -67,7 +67,7 @@ var currSpeed : float = 0.0
 @onready var shield0 : Area3D = $Shield0
 @onready var dashTimer : Timer = $DashTimer
 @onready var animTree : AnimationTree = $Body/Character/AnimationTree
-@export var currentRoom : CSGBox3D
+@export var currentRoom : Node
 
 
 func _ready() -> void:
@@ -94,8 +94,8 @@ func _physics_process(delta : float):
 			currSpeed = speed
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		#velocity.y = jumpVelocity
+	if Input.is_action_just_pressed("jump"): # and is_on_floor()
+		velocity.y = jumpVelocity
 		pass
 
 	# Get the input direction and handle the movement/deceleration.
@@ -158,6 +158,7 @@ func _add_score(nScore : float) -> void:
 	_ui_update("score")
 
 func _on_timer_timeout() -> void:
+	print("Soy el timer del player, acabo de finalizar.")
 	if tile != null:
 		match tile._get_type():
 			"red": # prueba de repo git funcando
@@ -168,6 +169,8 @@ func _on_timer_timeout() -> void:
 				_dash_up()
 			"purple":
 				_shield_up()
+			_:
+				print("No se encontró el tipo de tile.")
 	else:
 		_take_damage()
 
@@ -280,6 +283,9 @@ func _on_dash_timer_timeout() -> void:
 func _get_current_room() -> CSGBox3D:
 	return currentRoom
 
+func get_health() -> int:
+	return health
+
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area.name == "RoomArea":
 		var leavedRoom = area.get_parent()
@@ -293,11 +299,12 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			currentRoom = area.get_parent()
 			if currentRoom.has_method("get_room_state") and currentRoom.get_room_state() == false:
 				currentRoom.change_room_state()
+				currentRoom.swap_tile_color()
 				print("Player entered " + currentRoom.name + ", state is " + str(currentRoom.get_room_state()))
 		"AreaDoor":
 			var nextLevel : String = area.get_parent()._get_next_level()
 			get_tree().change_scene_to_file(nextLevel)
 		_:
 			tile = area
-			# _add_score(tile._get_score())
-			# area._print_data()
+			_add_score(tile._get_score())
+			area._print_data()

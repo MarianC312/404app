@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://npwgronrk35h"]
+
+[ext_resource type="Script" path="res://Scripts/RoomSphere.gd" id="1_kgra6"]
+[ext_resource type="Script" path="res://Scripts/tile_controller.gd" id="2_c816b"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7lmky"]
+height = 4.0
+radius = 5.0
+
+[node name="Room01" type="CSGCylinder3D"]
+operation = 2
+radius = 5.0
+height = 4.0
+sides = 32
+script = ExtResource("1_kgra6")
+
+[node name="RoomArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea"]
+shape = SubResource("CylinderShape3D_7lmky")
+
+[node name="TileContainer" type="Node3D" parent="RoomArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9, 0)
+script = ExtResource("2_c816b")
+
+[node name="Timer" type="Timer" parent="RoomArea/TileContainer"]

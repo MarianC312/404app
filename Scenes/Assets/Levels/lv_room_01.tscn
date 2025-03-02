@@ -1,8 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dj62kk3vo0rsr"]
+[gd_scene load_steps=10 format=3 uid="uid://dj62kk3vo0rsr"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/TestLevel/test_level.gd" id="1_4k6y4"]
 [ext_resource type="PackedScene" uid="uid://dy26xc485fhld" path="res://addons/srcoder_fps_controller/player.tscn" id="1_a5250"]
-[ext_resource type="PackedScene" uid="uid://ckqcnw6km4xra" path="res://Scenes/Assets/Room.tscn" id="2_6ucl2"]
+[ext_resource type="PackedScene" uid="uid://ckqcnw6km4xra" path="res://Scenes/Assets/RoomSquare.tscn" id="2_6ucl2"]
+[ext_resource type="Script" path="res://Scripts/LevelDoor.gd" id="3_3beph"]
+[ext_resource type="PackedScene" uid="uid://npwgronrk35h" path="res://Scenes/Assets/RoomSphere.tscn" id="3_nxn8q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_826lb"]
+size = Vector3(2, 3, 1)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_id1nk"]
 
@@ -25,44 +30,137 @@ script = ExtResource("1_4k6y4")
 use_collision = true
 
 [node name="Ground" type="CSGBox3D" parent="Room/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.75, 0)
-size = Vector3(42, 3.5, 22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, -23.5)
+size = Vector3(44, 3.5, 111)
 
 [node name="Room01" parent="Room/CSGCombiner3D" instance=ExtResource("2_6ucl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2.5, 26)
 
 [node name="Room02" parent="Room/CSGCombiner3D" instance=ExtResource("2_6ucl2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 5.5)
-
-[node name="Room03" parent="Room/CSGCombiner3D" instance=ExtResource("2_6ucl2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5.5)
-size = Vector3(22, 3, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.5, 15)
+size = Vector3(22, 4, 10)
 matrix = Vector2(11, 5)
 
+[node name="Room03" parent="Room/CSGCombiner3D" instance=ExtResource("3_nxn8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.5, 26)
+radius = 5.5
+
 [node name="Room04" parent="Room/CSGCombiner3D" instance=ExtResource("2_6ucl2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2, 0.5)
-size = Vector3(16, 3, 20)
-matrix = Vector2(8, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 2.5, 20.5)
+size = Vector3(19, 4, 21)
+matrix = Vector2(10, 11)
+
+[node name="Room05" parent="Room/CSGCombiner3D" instance=ExtResource("2_6ucl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 2.5, 4)
+
+[node name="Room06" parent="Room/CSGCombiner3D" instance=ExtResource("2_6ucl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 2.5, -16.5)
+size = Vector3(10, 4, 29)
+matrix = Vector2(5, 15)
+
+[node name="Room07" parent="Room/CSGCombiner3D" instance=ExtResource("2_6ucl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -11)
+size = Vector3(15, 4, 40)
+matrix = Vector2(8, 20)
+
+[node name="Room08" parent="Room/CSGCombiner3D" instance=ExtResource("2_6ucl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.5, 2)
+size = Vector3(15, 4, 14)
+matrix = Vector2(8, 7)
+
+[node name="Room09" parent="Room/CSGCombiner3D" instance=ExtResource("2_6ucl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.5, -12)
+size = Vector3(15, 4, 12)
+matrix = Vector2(8, 6)
+
+[node name="Room10" parent="Room/CSGCombiner3D" instance=ExtResource("2_6ucl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.5, -48.5)
+size = Vector3(15, 4, 59)
+matrix = Vector2(8, 30)
+
+[node name="Room11" parent="Room/CSGCombiner3D" instance=ExtResource("2_6ucl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2.5, -55)
+size = Vector3(26, 4, 46)
+matrix = Vector2(13, 23)
 
 [node name="Door01" type="CSGBox3D" parent="Room/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 2.25, 20.5)
 operation = 2
 size = Vector3(2, 3.5, 1.1)
 
 [node name="Door02" type="CSGBox3D" parent="Room/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.25, 20.5)
+operation = 2
+size = Vector3(2, 3.5, 1.1)
+
+[node name="Door04" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 2.25, 25.5)
+operation = 2
+size = Vector3(2, 3.5, 1.1)
+
+[node name="Door05" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2.25, 9.5)
+operation = 2
+size = Vector3(2, 3.5, 1.1)
+
+[node name="Door06" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.25, -1.5)
+operation = 2
+size = Vector3(2, 3.5, 1.1)
+
+[node name="Door07" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.5, 2.25, -28.5)
+operation = 2
+size = Vector3(2, 3.5, 1.1)
+
+[node name="Door08" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.5, 2.25, -3.5)
+operation = 2
+size = Vector3(2, 3.5, 1.1)
+
+[node name="Door09" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.5, 2.25, -20.5)
+operation = 2
+size = Vector3(2, 3.5, 1.1)
+
+[node name="Door13" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.5, 2.25, -31.5)
 operation = 2
 size = Vector3(2, 3.5, 1.1)
 
 [node name="Door03" type="CSGBox3D" parent="Room/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.5, 2.25, 9.5)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6, 2.25, -78.5)
+operation = 2
+size = Vector3(2, 3.5, 1.1)
+script = ExtResource("3_3beph")
+
+[node name="AreaDoor" type="Area3D" parent="Room/CSGCombiner3D/Door03"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/CSGCombiner3D/Door03/AreaDoor"]
+shape = SubResource("BoxShape3D_826lb")
+
+[node name="Door10" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.5, 2.25, -11.5)
+operation = 2
+size = Vector3(2, 3.5, 1.1)
+
+[node name="Door11" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18.5, 2.25, -18.5)
+operation = 2
+size = Vector3(2, 3.5, 1.1)
+
+[node name="Door12" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -7.5, 2.25, -5.5)
 operation = 2
 size = Vector3(2, 3.5, 1.1)
 
 [node name="Player" parent="." instance=ExtResource("1_a5250")]
-transform = Transform3D(-0.00918034, 0, -0.999958, 0, 1, 0, 0.999958, 0, -0.00918034, -8.39534, 7.36396, 9.36322)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -13, 1.75, 29)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2h03p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6, 0)
+
+[connection signal="area_entered" from="Room/CSGCombiner3D/Door03/AreaDoor" to="Room/CSGCombiner3D/Door03" method="_on_area_3d_area_entered"]

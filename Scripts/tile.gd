@@ -45,6 +45,7 @@ func _ready() -> void:
 	material.set_shader_parameter("hue_shift", randf_range(-1.0, 1.0))
 
 func _change_tile_material(change: bool) -> void:
+	# print("Soy el tile " + name + " y voy a cambiar a " + str(change))
 	if change == true:
 		_tile_power_shuffle()
 		var tileTypeBack = tileType
@@ -69,10 +70,14 @@ func _get_type() -> String:
 	return tileType
 
 func _get_score() -> float:
-	return tilePower[tileType]["score"]
+	if tilePower.has(tileType):
+		return tilePower[tileType]["score"]
+	else:
+		print("No existe el tileType: " + str(tileType) + " en " + name)
+		return 1.0
 
 func _print_data() -> void:
-	# print(name + ": " + tileType) #  + ((tileType != "red") if "(OK)" else "")
+	print(name + ": " + tileType) #  + ((tileType != "red") if "(OK)" else "")
 	pass
 
 func get_mesh_size() -> Vector3:

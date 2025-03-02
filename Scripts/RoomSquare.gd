@@ -14,17 +14,27 @@ var newPos : Vector3 = Vector3.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(str(size.x) + " - " + str(size.z) + " = " + str(size.x - size.z))
-	if (size.x - size.z) == 0:
-			newPos = Vector3(-1, 0, 0)
-	else:
-		if size.x > size.z:
-			newPos = Vector3(((size.x - (12 + 0)) / 2), 0, 0)
-		else:
-			newPos = Vector3(((size.x - (12 + 0)) / 2), 0, 0)
+	collShape.shape.set_size(size)
+	matrix.x = ceil(size.x)
+	matrix.y = ceil(size.z)
+	#print("Data of " + name + ":")
+	#print("size: " + str(size))
+	#print("collShape size" + str(collShape.shape.size))
+	#print(get_child(0).name + ": pos = " + str(get_child(0).position))
+	#print(str(size.x) + " - " + str(size.z) + " = " + str(size.x - size.z))
+	#if (size.x - size.z) == 0:
+			#newPos = Vector3(abs(size.x) * -0.5, 0, abs(size.z) * -0.5)
+	#else:
+		#if size.x > size.z:
+			#newPos = Vector3(abs(size.x) * -0.5, 0, abs(size.z) * -0.5)
+		#else:
+			#newPos = Vector3(abs(size.x) * -0.5, 0, abs(size.z) * -0.5)
+	newPos = Vector3((abs(size.x) * -0.5) + 0.5, 0, (abs(size.z) * -0.5) + 0.5)
+	#newPos = Vector3.ZERO
+	print(get_child(0).name + ": pos = " + str(newPos))
 	print(newPos)
-	get_child(0).position += newPos
-	tileContainer.update_position(Vector3(0, 0, 0))
+	# get_child(0).position += newPos
+	tileContainer.update_position(newPos)
 	for i in range(0, matrix.x, 1):
 		for j in range(0, matrix.y, 1):
 			tileInstance = tile.instantiate()
@@ -47,15 +57,22 @@ func _load_floor() -> void:
 	for child in tileChilds:
 		if child is not Timer:
 			# print("Cargando tile en: " + str(loadedMatrix))
-			child.position = Vector3(((collShape.shape.size.x - 2) / 2) + loadedMatrix.x,0,loadedMatrix.y)
-			loadedMatrix.x += 2
-			if loadedMatrix.x >= matrix.x * 2:
+			child.position = Vector3(loadedMatrix.x,0,loadedMatrix.y)
+			loadedMatrix.x -= 1
+			if abs(loadedMatrix.x) >= matrix.x:
 				loadedMatrix.x = 0
-				loadedMatrix.y += 2
+				loadedMatrix.y -= 1
+	if roomActive:
+		swap_tile_color()
 
 func change_room_state() -> void:
 	print("Changing room state from " + str(roomActive) + " to " + str(!roomActive))
 	roomActive = !roomActive
+	if roomActive:
+		swap_tile_color()
 
 func get_room_state() -> bool:
 	return roomActive
+
+func swap_tile_color() -> void:
+	tileContainer._swap_tile_color()
