@@ -68,7 +68,7 @@ var currSpeed : float = 0.0
 @onready var dashTimer : Timer = $DashTimer
 @onready var animTree : AnimationTree = $Body/Character/AnimationTree
 @export var currentRoom : Node
-@onready var joystick: Node2D = $CameraPivot/Joystick
+@onready var joystick: Node2D = $CameraPivot/Control/Joystick
 var osName : String
 
 func _ready() -> void:
@@ -83,9 +83,11 @@ func _ready() -> void:
 	currAnim = IDLE
 	match osName:
 		"Windows":
-			joystick.hide()
+			# joystick.hide()
+			pass
 		"Linux":
-			joystick.hide()
+			# joystick.hide()
+			pass
 		"Android":
 			joystick.show()
 
