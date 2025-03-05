@@ -69,8 +69,10 @@ var currSpeed : float = 0.0
 @onready var animTree : AnimationTree = $Body/Character/AnimationTree
 @export var currentRoom : Node
 @onready var joystick: Node2D = $CameraPivot/Joystick
+var osName : String
 
 func _ready() -> void:
+	osName = OS.get_name()
 	_ui_update("score")
 	_ui_update("dash")
 	healthBar.max_value = MAXHEALTH
@@ -79,8 +81,10 @@ func _ready() -> void:
 	cameraPivot.rotation.x = -45
 	dashTimer.wait_time = DASHDURATION
 	currAnim = IDLE
-	match OS.get_name():
+	match osName:
 		"Windows":
+			joystick.hide()
+		"Linux":
 			joystick.hide()
 		"Android":
 			joystick.show()
@@ -106,7 +110,7 @@ func _physics_process(delta : float):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	
-	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward") if OS.get_name() == "Windows" else joystick.get_post_vector()
+	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward") if osName == "Windows" or osName == "Linux" else joystick.get_pos_vector()
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
 	var target_velocity := Vector3.ZERO
 	if direction:
