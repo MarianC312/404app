@@ -20,7 +20,7 @@ ambient_light_source = 3
 ambient_light_color = Color(0.80057, 0.621181, 0.545011, 1)
 reflected_light_source = 2
 
-[node name="LvRoom01" type="Node3D"]
+[node name="LvRoom02" type="Node3D"]
 script = ExtResource("1_3fhrj")
 
 [node name="Room" type="Node3D" parent="."]
@@ -123,18 +123,6 @@ size = Vector3(35.1, 4, 30.1)
 
 [node name="Player" parent="." instance=ExtResource("5_5hp4t")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -47, 2.75, 23)
-mouseSensitivity = 3.0
-groundAcceleration = 4.0
-airAcceleration = 0.5
-gravity = 15.0
-health = 0
-score = 0
-dash = 10
-blendSpeed = 10
-speed = 4.5
-crouchSpeed = 3.25
-jumpVelocity = 7.5
-shield = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2h03p")
