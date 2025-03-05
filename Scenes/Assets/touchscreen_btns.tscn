@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/joyknobpng.gd" id="4_sn2hh"]
 
 [node name="Joystick" type="Node2D"]
+scale = Vector2(0.2, 0.2)
 script = ExtResource("1_a0il5")
 
 [node name="Joyring" type="Sprite2D" parent="."]
