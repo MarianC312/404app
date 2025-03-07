@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3ran0uhw4a5x"]
+[gd_scene load_steps=17 format=3 uid="uid://c3ran0uhw4a5x"]
 
 [ext_resource type="Shader" path="res://Scripts/Shaders/bubble.gdshader" id="1_02djm"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Smoke.gdshader" id="2_std2p"]
@@ -21,6 +21,10 @@ curve = SubResource("Curve_2pxal")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6oorl"]
 resource_local_to_scene = true
+emission_shape = 1
+emission_sphere_radius = 2.0
+angle_min = -4.99999
+angle_max = 5.00001
 angle_curve = SubResource("CurveTexture_atda0")
 inherit_velocity_ratio = 1.0
 velocity_pivot = Vector3(1, 0, 1)
@@ -46,6 +50,42 @@ shader_parameter/bubble_color = Vector4(0.8, 0.9, 1, 0.5)
 [sub_resource type="SphereMesh" id="SphereMesh_iiccp"]
 material = SubResource("ShaderMaterial_4tb25")
 
+[sub_resource type="Curve" id="Curve_vrmhv"]
+_data = [Vector2(0.0362319, 0.032967), 0.0, 0.0, 0, 0, Vector2(0.471014, 0.659341), 0.0, 0.0, 0, 0, Vector2(0.717391, 0.120879), 0.0, 0.0, 0, 0, Vector2(0.992754, 0.725275), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_6gbhd"]
+curve = SubResource("Curve_vrmhv")
+
+[sub_resource type="Curve" id="Curve_tsa3b"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 304.615), 0.0, 0.0, 0, 0, Vector2(0.84058, -19.7802), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1xgnx"]
+curve = SubResource("Curve_tsa3b")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lou0h"]
+resource_local_to_scene = true
+emission_shape = 1
+emission_sphere_radius = 2.0
+angle_min = -4.99999
+angle_max = 5.00001
+angle_curve = SubResource("CurveTexture_6gbhd")
+inherit_velocity_ratio = 1.0
+velocity_pivot = Vector3(1, 0, 1)
+direction = Vector3(1, 1, 1)
+spread = 5.0
+flatness = 1.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+angular_velocity_curve = SubResource("CurveTexture_1xgnx")
+orbit_velocity_min = 1.333
+orbit_velocity_max = 1.333
+gravity = Vector3(0, 6, 0)
+scale_max = 2.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yq1i5"]
 resource_local_to_scene = true
 render_priority = 0
@@ -58,6 +98,7 @@ shader_parameter/time_scale = 1.0
 [sub_resource type="SphereMesh" id="SphereMesh_w50bv"]
 resource_local_to_scene = true
 material = SubResource("ShaderMaterial_yq1i5")
+rings = 16
 
 [node name="Particles" type="Node3D"]
 
@@ -71,10 +112,10 @@ draw_pass_1 = SubResource("SphereMesh_iiccp")
 
 [node name="Smoke" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-amount = 15
-sub_emitter = NodePath(".")
-lifetime = 2.5
-speed_scale = 1.25
+lifetime = 1.5
+speed_scale = 0.65
+explosiveness = 0.25
+randomness = 1.0
 local_coords = true
-process_material = SubResource("ParticleProcessMaterial_6oorl")
+process_material = SubResource("ParticleProcessMaterial_lou0h")
 draw_pass_1 = SubResource("SphereMesh_w50bv")
